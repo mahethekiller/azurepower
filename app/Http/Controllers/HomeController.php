@@ -12,9 +12,41 @@ class HomeController extends Controller
     {
         return view('home',
             [
-                'pageTitle'       => 'Greenlam Industries - Warranty Services Portal for Consumers',
-                'pageDescription' => 'Greenlam Industries - Warranty Services Portal for Consumers',
+                'pageTitle'       => 'Azure Power - Home',
+                'pageDescription' => 'Azure Power - Home',
                 'pageScript'      => "home",
+                'slides'          => [
+                    [
+                        'image'       => 'img/banner.png',
+                        'heading'     => 'We are a creative digital agency',
+                        'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, quidem.',
+                        'buttons'     => [
+                            [
+                                'text' => 'Learn More',
+                                'link' => '#',
+                            ],
+                            [
+                                'text' => 'Get Started',
+                                'link' => '#',
+                            ],
+                        ],
+                    ],
+                    [
+                        'image'       => 'img/banner.png',
+                        'heading'     => 'We are a creative digital agency',
+                        'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, quidem.',
+                        'buttons'     => [
+                            [
+                                'text' => 'Learn More',
+                                'link' => '#',
+                            ],
+                            [
+                                'text' => 'Get Started',
+                                'link' => '#',
+                            ],
+                        ],
+                    ],
+                ],
             ]
         );
     }

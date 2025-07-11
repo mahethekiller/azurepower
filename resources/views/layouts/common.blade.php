@@ -1,109 +1,98 @@
 @props([
-    'pageTitle' => 'Greenlam Industries - Warranty Services Portal for Consumers',
-    'pageDescription' => 'Greenlam Industries - Warranty Services Portal for Consumers',
+    'pageTitle' => 'Azure Power',
+    'pageDescription' => 'Azure Power',
     'pageScript' => null,
 ])
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="zxx">
 
 <head>
+    <!-- Meta -->
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Mukesh Kumar">
     <title>{{ $pageTitle }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="{{ $pageDescription }}">
-    <meta name="author" content="Mukesh">
-<link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/ico" sizes="16x16">
-<link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/ico" sizes="16x16">
-
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Google Fonts css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Rubik:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap css -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+    <!-- SlickNav css -->
+    <link href="{{ asset('assets/css/slicknav.min.css') }}" rel="stylesheet">
+    <!-- Swiper css -->
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
+    <!-- Font Awesome icon css -->
+    <link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" media="screen">
+    <!-- Animated css -->
+    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
+    <!-- Magnific css -->
+    <link href="{{ asset('assets/css/magnific-popup.css') }}" rel="stylesheet">
+    <!-- Main custom css -->
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
 </head>
 
-<body>
-    <div class="container-fluid">
-        <header class="d-flex flex-wrap justify-content-center py-1 border-bottom align-items-center top-header">
-            <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
-                <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" width="130px"
-                    alt="Greenlam Industries - Warranty Services Portal for Consumers" />
-            </a>
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link custom-nav-btn">Contact Us</a></li>
-            </ul>
-        </header>
-    </div>
-    <div class="container-fluid p-0">
-        <div class="banner">
-
-            <figure class="figure">
-  <img src="{{ asset('assets/images/banner.png') }}" class="img-fluid" alt="Greenlam Industries - Warranty Services Portal for Consumers" />
-  <h1>Greenlam Industries</h1>
-   <h2>Warranty Services Portal for Consumers</h2>
-</figure>
-            </div>
-    </div>
-    <div class="container">
-        <main class="form-signin text-left">
-            {{ $slot }}
-        </main>
-    </div>
-
-    <div class="container-fluid">
-        <section class="why-register-your-product">
-            <div class="row">
-                <h2>Why Register Your Product? </h2>
-                <div class="col-md-3 col-lg-3 mb-3">
-                    <div class="boxes">
-                        <img class="img-fluid box-img" width="60px"
-                            src="{{ asset('assets/images/Convenience-icon.png') }}" alt="">
-                        <h3>For Your Convenience</h3>
-                        <p>Gain quick and easy access to product manuals, replacement parts, tips and more.</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-3 mb-3">
-                    <div class="boxes bg-darken">
-                        <img class="img-fluid box-img" width="60px"
-                            src="{{ asset('assets/images/Safety-icon.png') }}" alt="">
-                        <h3>For Your Safety</h3>
-                        <p>You are certain to be contacted in the unlikely event a safety notification is required.</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-3 mb-3">
-                    <div class="boxes">
-                        <img class="img-fluid box-img" width="60px"
-                            src="{{ asset('assets/images/Warranty-icon.png') }}" alt="">
-                        <h3>Warranty Service</h3>
-                        <p>Obtain more efficient warranty service in case there is a problem with your product.</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-3 mb-3">
-                    <div class="boxes bg-darken">
-                        <img class="img-fluid box-img" width="60px"
-                            src="{{ asset('assets/images/Ownership-icon.png') }}" alt="">
-                        <h3>Confirmation Of Ownership</h3>
-                        <p>Always have proof of purchase in case of an insurance loss (ex. fire, flood or theft).</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+<body class="tt-magic-cursor">
 
 
-    <div class="container-fluid border-top">
-        <section class="footer py-2">
-            <div class="row">
-                <div class="col-md-12 col-lg-12">
-                    <p>Copyright © {{ date('Y') }} Greenlam Industries Ltd.</p>
-                </div>
-            </div>
-        </section>
-    </div>
 
+    <!-- Header Start -->
+    @include('layouts.partials.header')
+    <!-- Header End -->
+
+    {{ $slot }}
+
+    @include('layouts.partials.footer')
+
+
+    <!-- Jquery Library File -->
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
+    <!-- Bootstrap js file -->
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/customjs/common.js') }}"></script>
-    {{-- Dynamically include page-specific script if available --}}
+    <!-- Validator js file -->
+    <script src="{{ asset('assets/js/validator.min.js') }}"></script>
+    <!-- SlickNav js file -->
+    <script src="{{ asset('assets/js/jquery.slicknav.js') }}"></script>
+    <!-- Swiper js file -->
+    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
+    <!-- Counter js file -->
+    <script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
+    <!-- Magnific js file -->
+    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <!-- SmoothScroll -->
+    <script src="{{ asset('assets/js/SmoothScroll.js') }}"></script>
+    <!-- Parallax js -->
+    <script src="{{ asset('assets/js/parallaxie.js') }}"></script>
+    <!-- MagicCursor js file -->
+    <script src="{{ asset('assets/js/gsap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/magiccursor.js') }}"></script>
+    <!-- Text Effect js file -->
+    <script src="{{ asset('assets/js/splitType.js') }}"></script>
+    <script src="{{ asset('assets/js/ScrollTrigger.min.js') }}"></script>
+    <!-- Wow js file -->
+    <script src="{{ asset('assets/js/wow.js') }}"></script>
+    <!-- Main Custom js file -->
+    <script src="{{ asset('assets/js/function.js') }}"></script>
+
     @if ($pageScript)
         <script src="{{ asset('assets/customjs/' . $pageScript . '.js') }}"></script>
     @endif
