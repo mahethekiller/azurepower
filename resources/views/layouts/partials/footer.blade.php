@@ -12,7 +12,7 @@
                                 <!-- Footer About Start -->
                                 <div class="footer-about">
                                     <figure>
-                                        <img width="200px" src="img/logo.png" alt="">
+                                        <img width="200px" src="{{ asset('assets/img/logo.png') }}"  alt="">
                                     </figure>
                                     <p class="oragne">4.1 GWs renewable energy assets</p>
                                     <p>Azure Power has a renewable energy assets base of over 3 GWs of operational
@@ -64,11 +64,11 @@
                                 <!-- Footer Links Start -->
                                 <div class="footer-links">
                                     <h2>Address</h2>
-                                    <p><img src="img/location.png" /> 3rd Floor, Asset 301-304, WorldMark 3, Aerocity,
+                                    <p><img src="{{ asset('assets/img/location.png') }}" /> 3rd Floor, Asset 301-304, WorldMark 3, Aerocity,
                                         New Delhi 110037, India</p>
-                                    <p><img src="img/call.png" /> <a href="tel:+91 11 4940 2000">+91 11 4940 2000</a>
+                                    <p><img src="{{ asset('assets/img/call.png') }}" /> <a href="tel:+91 11 4940 2000">+91 11 4940 2000</a>
                                     </p>
-                                    <p><img src="img/sms.png" /> <a
+                                    <p><img src="{{ asset('assets/img/sms.png') }}" /> <a
                                             href="mailto:info@azurepower.com">info@azurepower.com</a></p>
                                 </div>
                                 <!-- Footer Links End -->
