@@ -2,53 +2,53 @@
     'slides' => [
         [
             'image' => 'img/banner.png',
-            'heading' => 'We are a creative digital agency',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, quidem.',
+            'heading' => '100% clean energy for your business',
+            'description' => 'Leading the transition to clean, sustainable power solutions for a greener future',
             'buttons' => [
                 [
                     'text' => 'Learn More',
                     'link' => '#'
                 ],
-                [
-                    'text' => 'Get Started',
-                    'link' => '#'
-                ]
+                // [
+                //     'text' => 'Explore Projects',
+                //     'link' => '#'
+                // ]
             ]
         ],
         [
             'image' => 'img/banner.png',
-            'heading' => 'We are a creative digital agency',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, quidem.',
+            'heading' => 'Over 4.1 GWs* pan India renewable energy portfolio',
+            'description' => 'Leading the transition to clean, sustainable power solutions for a greener future',
             'buttons' => [
                 [
                     'text' => 'Learn More',
                     'link' => '#'
                 ],
-                [
-                    'text' => 'Get Started',
-                    'link' => '#'
-                ]
+                // [
+                //     'text' => 'Explore Projects',
+                //     'link' => '#'
+                // ]
             ]
         ],
         [
             'image' => 'img/banner.png',
-            'heading' => 'We are a creative digital agency',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, quidem.',
+            'heading' => 'India’s first utility scale solar project',
+            'description' => 'Leading the transition to clean, sustainable power solutions for a greener future',
             'buttons' => [
                 [
                     'text' => 'Learn More',
                     'link' => '#'
                 ],
-                [
-                    'text' => 'Get Started',
-                    'link' => '#'
-                ]
+                // [
+                //     'text' => 'Get Started',
+                //     'link' => '#'
+                // ]
             ]
         ],
         [
             'image' => 'img/banner.png',
-            'heading' => 'We are a creative digital agency',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, quidem.',
+            'heading' => '300,000+ beneficiaries of social investment',
+            'description' => 'Leading the transition to clean, sustainable power solutions for a greener future',
             'buttons' => [
                 [
                     'text' => 'Learn More',

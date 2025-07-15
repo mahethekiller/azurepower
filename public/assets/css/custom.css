@@ -15,7 +15,7 @@
 	--error-color			: rgb(230, 87, 87);
 
 }
-  
+
 
 /************************************/
 /**** 	   02. General css		 ****/
@@ -343,6 +343,8 @@ a:focus{
 	z-index: 100;
 	padding: 5px 0;
 	background: rgba(0, 0, 0, 0.2);
+	padding: 5px 0;
+	background: rgba(0, 0, 0, 0.2);
 }
 
 .topbar-contact-info{
@@ -372,6 +374,7 @@ a:focus{
 
 .topbar-contact-info ul li i{
 	color: #fff;
+	color: #fff;
 	margin-right: 6px;
 }
 
@@ -400,12 +403,14 @@ a:focus{
 	border-radius: 7px;
 	font-size: 14px;
 	background: #fff;
+	background: #fff;
 	color: var(--primary-color);
 	transition: all 0.2s ease-in-out;
 }
 
 .header-social-links ul li a:hover{
 	background: var(--primary-color);
+	color: #fff;
 	color: #fff;
 }
 
@@ -421,7 +426,7 @@ header.main-header .header-sticky{
 	padding: 10px 15px;
 	position: relative;
 	top: 0;
-	z-index: 100;	
+	z-index: 100;
 }
 
 header.main-header .header-sticky.hide{
@@ -3019,7 +3024,7 @@ font-size: 22px;
 
 .project-layout2-slider .swiper-wrapper{
 	-webkit-transition-timing-function:linear!important;
-	transition-timing-function:linear!important; 
+	transition-timing-function:linear!important;
 }
 
 .project-layout2-slide{
@@ -3036,7 +3041,7 @@ font-size: 22px;
     mask-image: url(../images/project-mask-img.svg);
     mask-size: cover;
     mask-position: center center;
-    mask-repeat: no-repeat;	
+    mask-repeat: no-repeat;
 }
 
 .project-layout2-slide .project-image img{
@@ -3117,7 +3122,7 @@ font-size: 22px;
   top: -3px;
   z-index: 10;
   height: 570px;
-  width: 190px;}  
+  width: 190px;}
 
 .project-layout3 .container-fluid{
 	padding-left: 0;
@@ -3126,7 +3131,7 @@ font-size: 22px;
 
 .project-layout3-slider .swiper-wrapper{
 	-webkit-transition-timing-function:linear!important;
-	transition-timing-function:linear!important; 
+	transition-timing-function:linear!important;
 }
 
 .project-slide3{
@@ -5179,7 +5184,7 @@ footer.main-footer{
 }
 
 .team-social-links h3{
-	font-size: 22px;	
+	font-size: 22px;
 }
 
 .team-social-links ul{
@@ -5531,7 +5536,7 @@ table.reportTable tbody tr:hover {
 /******************************************/
 
 .page-404{
-	padding: 100px 0; 
+	padding: 100px 0;
 }
 
 .page-not-found-box{
@@ -5603,7 +5608,7 @@ table.reportTable tbody tr:hover {
 
 	.overview-counter-box{
 		margin-left: 0;
-	}	
+	}
 }
 
 @media only screen and (max-width: 991px){
@@ -5668,7 +5673,7 @@ table.reportTable tbody tr:hover {
 	.hero-content-footer{
 		margin-top: 30px;
 	}
-	
+
 	.hero.hero-slider .hero-slider-layout1 .hero-slide,
 	.hero-layout2.hero-slider .hero-slider-layout2 .hero-slide,
 	.hero-layout3.hero-slider .hero-slider-layout3 .hero-slide{
@@ -5686,7 +5691,7 @@ table.reportTable tbody tr:hover {
 		transform: translateY(0);
 		border-radius: 12px;
 	}
-	
+
 	.hero.hero-slider .hero-slider-layout1 .hero-button-next,
 	.hero-layout2.hero-slider .hero-slider-layout2 .hero-button-next{
 		right: 20px;
@@ -6376,7 +6381,7 @@ font-size: 36px !important;
   position: relative;
   margin-bottom: 35px;
 }
-   
+
     .btn-default{
         padding: 10px 22px;
     }
@@ -6825,23 +6830,23 @@ font-size: 36px !important;
 	.project-entry h1{
 		font-size: 24px;
 	}
-	
+
 	.project-entry h2{
 		font-size: 22px;
 	}
-	
+
 	.project-entry h3{
 		font-size: 20px;
 	}
-	
+
 	.project-entry h4{
 		font-size: 18px;
 	}
-	
+
 	.project-entry h5{
 		font-size: 16px;
 	}
-	
+
 	.project-entry h6{
 		font-size: 14px;
 	}

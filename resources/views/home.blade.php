@@ -469,7 +469,7 @@
 
 						<div class="video-play-button">
 							<a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video">
-								<img src="images/play.svg" alt="">
+								<img src="{{ asset('assets/images/play.svg') }}" alt="">
 							</a>
 						</div>
 					</div>
