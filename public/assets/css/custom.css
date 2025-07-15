@@ -341,7 +341,8 @@ a:focus{
 .topbar{
 	position: relative;
 	z-index: 100;
-	padding: 15px 0;
+	padding: 5px 0;
+	background: rgba(0, 0, 0, 0.2);
 }
 
 .topbar-contact-info{
@@ -370,7 +371,7 @@ a:focus{
 }
 
 .topbar-contact-info ul li i{
-	color: #ec8e13;
+	color: #fff;
 	margin-right: 6px;
 }
 
@@ -398,14 +399,14 @@ a:focus{
 	justify-content: center;
 	border-radius: 7px;
 	font-size: 14px;
-	background: #ec8e13;
+	background: #fff;
 	color: var(--primary-color);
 	transition: all 0.2s ease-in-out;
 }
 
 .header-social-links ul li a:hover{
 	background: var(--primary-color);
-	color: #ec8e13;
+	color: #fff;
 }
 
 header.main-header{
@@ -440,6 +441,7 @@ header.main-header .header-sticky.active{
 	border-bottom: 1px solid #16330010;
     transform: translateY(0);
 	background: #21b2ed;
+	padding: 0px 5px;
 }
 
 .navbar{
@@ -1012,7 +1014,7 @@ header.main-header .header-sticky.active{
 /******************************************/
 
 .about-us{
-	padding: 100px 0 150px 0;
+	padding: 100px 0 100px 0;
 }
 
 .about-us .section-title{
@@ -2359,7 +2361,6 @@ header.main-header .header-sticky.active{
 	background-size: cover;
 }
 
-
 .form-item {
   display: inline-block;
   padding: 65px 45px;
@@ -2385,6 +2386,7 @@ header.main-header .header-sticky.active{
   font-weight: 400;
 }
 
+
 .solar-calculator h1{
 	font-size: 20px;
 	color: rgba(249, 157, 30, 1);
@@ -2404,6 +2406,73 @@ header.main-header .header-sticky.active{
   color: #fff;
   padding-bottom: 50px;
 }
+
+
+
+.about-our-values{
+	padding: 100px 0 90px;
+	background: url(../img/our-values-bg.png) no-repeat center top;
+	position: relative;
+	background-size: cover;
+}
+
+
+.about-our-values h1{
+	font-size: 20px;
+	color: rgba(249, 157, 30, 1);
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	text-align: center;
+}
+
+.about-our-values h2{
+	font-size: 40px;
+	color: #fff;
+padding-top: 10px;
+  padding-bottom: 45px;
+  text-align: center;
+}
+
+.about-our-values p {
+  font-size: 14px;
+  color: #fff;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.about-us.about-us-bg a{color: #21b2ed;}
+
+.about-our-values .box-item {
+display: inline-block;
+  padding: 50px 15px;
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  border: solid 1px #4a4d4e;
+  min-height: 500px;
+}
+.about-our-values .box-item .box-icon {
+  width: 80px;
+  height: 80px;
+  width: 100%;
+}
+
+.about-our-values .box-item .box-content {
+  width: 100%;
+}
+.about-our-values .box-item .box-content h3 {
+font-size: 22px;
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+
+
+
+
+
 .form-color-bg{
 	background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
@@ -3035,6 +3104,20 @@ header.main-header .header-sticky.active{
 	padding: 100px 0;
 	background: rgba(248, 248, 248, 1);
 }
+
+.slider-bg-left{background: url(../img/slider-bg-left.png) no-repeat left center; position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 10;
+  height: 570px;
+  width: 190px;}
+
+.slider-bg-right{background: url(../img/slider-bg-right.png) no-repeat right center; position: absolute;
+  right: 0px;
+  top: -3px;
+  z-index: 10;
+  height: 570px;
+  width: 190px;}  
 
 .project-layout3 .container-fluid{
 	padding-left: 0;
@@ -3879,12 +3962,24 @@ footer.main-footer{
 /****	  	 25. About us page css 	   ****/
 /******************************************/
 
-.page-header{
+.page-header.investor-page-banner{
 	position: relative;
-	background: url(../images/header-banner.jpg) no-repeat center center;
-	padding: 260px 0 100px;
+	padding: 360px 0 200px;
     margin-top: -162px;
     overflow: hidden;
+	background-position: right !important;
+}
+
+
+.internal-banner{position: absolute;z-index: -1;top: 0px;left: 0px;width: 100%;height: 100%;}
+
+.page-header.about-us-page-banner{
+	position: relative;
+	/*background: url(../img/about-banner.png) no-repeat ;*/
+	padding: 360px 0 200px;
+    margin-top: -162px;
+    overflow: hidden;
+	background-position: right !important;
 }
 
 .page-header:before{
@@ -3894,22 +3989,34 @@ footer.main-footer{
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: linear-gradient(90deg, rgba(22, 51, 0, 0.65) 0%, rgba(22, 51, 0, 0.00) 100%);
+	background: linear-gradient(90deg, rgba(11, 29, 38, 0.7) 10%, rgba(11, 29, 38, 0.6) 100%);
 }
 
 .page-header-box{
 	position: relative;
 	z-index: 1;
+	display: grid;
+    justify-content: center;
 }
 
 .page-header-box h1{
-	font-size: 70px;
-	color: var(--white-color);
+	font-size: 18px;
+	color:#fff;
 	margin-bottom: 10px;
+	letter-spacing: 8px;
+    text-transform: uppercase;
+	margin: 0px auto;
+}
+
+.page-header-box h2 {
+  font-size: 70px;
+  color: #fff;
+  margin-bottom: 10px;
 }
 
 .page-header-box ol{
 	margin-bottom: 0;
+	justify-content: center;
 }
 
 .page-header-box ol li.breadcrumb-item{
@@ -5126,6 +5233,43 @@ footer.main-footer{
 }
 
 
+.about-box-rgt-section {
+  position: relative;
+  margin-top: 0px;
+}
+.about-box-rgt-section .info-box {
+  background-color: #ec8e13;
+  border-top: 7px solid #ffd197;
+  -webkit-box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  max-width: 170px;
+  padding: 30px;
+  position: absolute;
+  right: 15px;
+  top: -250px;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  border-radius: 0px 0px 8px 8px;
+}
+.about-box-rgt-section .info-box:hover {
+  background-color: #ec8e13;
+  border-top: 7px solid #ffbc65;
+  color: #fff;
+}
+.about-box-rgt-section .info-box .title {
+  color: #fff;
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+
+.about-box-rgt-section .icon{width: 50px;}
+
+
 .content-box-rgt-section {
   position: relative;
   padding-right: 200px;
@@ -5187,12 +5331,25 @@ footer.main-footer{
 }
 
 .about-us.about-us-bg {
-  background-image: url(../img/about-bg.png);
-  background-position: right bottom;
+  background-image: url(../img/why-choose-us-bg.png);
+  background-position: left bottom;
   background-repeat: no-repeat;
   content: "";
 }
 
+
+.vision-mission-bg {
+  background:rgba(248, 248, 248, 1);
+  padding: 100px 0;
+}
+
+.about-img-3 {
+  display: inline-block;
+  width: 95%;
+  border-radius: 30px;
+  overflow: hidden;
+  line-height: 0;
+}
 
 
 
@@ -5243,11 +5400,130 @@ p.oragne{color: #ec8e13;}
 }
 
 
+.table-data-bod{background: #fff;
+  border-radius: 10px;
+  padding: 30px !important;
+  display: block;
+  border: solid 1px #dee2e6;}
+
+
+.investor{
+	padding:0px;
+	background: #f8f8f8;
+}
+
+.investor-bg-grey{background: #f8f8f8;}
+
+.investor #myTab{background: #fff; border-bottom: 0px !important; justify-content: space-between;}
+
+.investor .nav-item{border-radius: 0px;
+  border-right: solid 1px #efefef;
+  width: 50%;
+  text-align: center;}
+
+.investor .nav-item .nav-link.active{background:#ec8e13; color: #fff; border-radius: 0px;}
+
+.investor .nav-tabs .nav-link:hover {background:#ec8e13; color: #fff; border-radius: 0px;}
 
 
 
+.investor .dates .nav-item{border-radius: 0px; border-right: solid 1px #efefef; background: #fff; padding: 0px;}
+
+.investor .dates .nav-item .nav-link.active{background:rgba(247, 248, 248, 1); color: #000; border-radius: 10px 10px 0 0; border-top: solid 3px #ec8e13;}
+
+.investor .dates .nav-item .nav-link:hover {background:rgba(247, 248, 248, 1); color: #000; border-radius: 10px 10px 0 0; border-top: solid 3px #ec8e13;}
 
 
+.investor #myTabContent .accordion-body h2{font-size: 40px !important; text-align: center; margin-bottom: 40px; margin-top: 40px;}
+
+.investor #myTabContent .accordion-body h3{font-size: 30px !important; text-align: center; margin-bottom: 20px; margin-top: 40px;}
+
+.investor .nav-link {
+  padding: 25px;
+  text-transform: uppercase;
+  color: #000;
+  margin: 0px auto;
+  width: 100%;
+}
+
+
+.investor .tab-nav-custom .nav-item{
+	width: auto;
+	border-radius: 10px 10px 0 0;
+
+}
+
+table.prReports thead th {
+  background: none;
+  border: none !important;
+  font-size: 15px;
+  text-transform: inherit;
+  color: #0072b8;
+  font-weight: 700;
+}
+
+
+.reportTable td{padding:15px 0px 15px 0;}
+
+.reportTable td a{color: #21b2ed; font-size: 14px; padding: 0 10px;}
+
+.reportTable th{color: #000; font-size: 14px; font-weight: 400;}
+
+
+
+table.reportTable tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Odd rows (1st, 3rd, 5th...) */
+table.reportTable tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Optional: Hover effect */
+table.reportTable tbody tr:hover {
+  background-color: #e0f7ff;
+}
+
+
+
+.reportTable .link-buttons a {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #ec8e13;
+  line-height: 14px;
+  display: inline-flex;
+  padding: 5px 10px;
+  background-color: transparent;
+  margin: 5px 5px 5px 0px;
+  border-radius: 5px;
+  border: solid 1px #ec8e13;
+}
+
+.reportTable .link-buttons a:hover{
+	color:#fff;
+  background-color: #ec8e13;
+  border: solid 1px #ec8e13;
+}
+
+
+.reportTable tbody tr{
+  color: #000;
+  border-top: 1px solid #d8d8d8;
+}
+
+
+.accordion-button:not(.collapsed) {
+  color: #fff;
+  background-color: #ec8e13;}
+
+
+@media (max-width: 991px) {
+  .tab-content>.tab-pane {
+    display: block;
+    opacity: 1;
+  }
+}
 
 
 /******************************************/
@@ -5275,6 +5551,10 @@ p.oragne{color: #ec8e13;}
 	header.main-header{
 		margin: 0 15px;
 	}
+
+.main-menu ul li {
+  margin: 5px;
+}
 
 	.main-menu ul li a{
 		padding: 12px 4px !important;
@@ -5684,7 +5964,7 @@ p.oragne{color: #ec8e13;}
 	}
 
 	footer.main-footer{
-		padding: 0 0 40px;
+		padding: 40px 0px 0 0;
 	}
 
 	.footer-contact{
@@ -6073,6 +6353,17 @@ p.oragne{color: #ec8e13;}
 
 @media only screen and (max-width: 767px){
 
+	.investor #myTabContent .accordion-body h2 {
+font-size: 36px !important;
+    margin-bottom: 36px;
+    margin-top: 10px;
+    line-height: 30px;
+}
+
+.investor {
+  padding: 100px 0;
+}
+
 .about-image .experience {
   left: 0px;}
 
@@ -6362,6 +6653,7 @@ p.oragne{color: #ec8e13;}
 
 	.footer-copyright{
 		margin-top: 10px;
+    border-radius: 0px;
 	}
 
 	.footer-copyright-text p{

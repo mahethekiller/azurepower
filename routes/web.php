@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\UserManagement;
 use App\Http\Controllers\Admin\WarrantyManagement;
+use App\Http\Controllers\Frontend\InvestorPages;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\ProfileController;
@@ -9,6 +10,13 @@ use App\Http\Controllers\WarrantyController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/investor', [InvestorPages::class, 'index'])->name('investor');
+
+
+
+
+
 
 // OTP Routes
 Route::get('registerotp', [OtpController::class, 'showRegisterForm'])->name('registerotp');
