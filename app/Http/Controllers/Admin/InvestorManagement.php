@@ -42,7 +42,7 @@ class InvestorManagement extends Controller
             'button_text.*' => 'required|string|max:255',
             'type.*'        => 'required|in:link,file',
             'link.*'        => 'nullable|url|required_if:type.*,link',
-            'file.*'        => 'nullable|file|required_if:type.*,file|mimes:pdf,doc,docx,jpg,png|max:6048',
+            'file.*'        => 'nullable|file|required_if:type.*,file|mimes:pdf,doc,docx,jpg,png,mp3|max:11048',
         ]);
 
         // echo "<pre>";
@@ -114,7 +114,7 @@ class InvestorManagement extends Controller
             'link'          => 'array',
             'link.*'        => 'nullable|url|required_if:type.*,link',
             'file'          => 'array',
-            'file.*'        => 'nullable|file|mimes:pdf,doc,docx,jpg,png|max:2048',
+            'file.*'        => 'nullable|file|mimes:pdf,doc,docx,jpg,png,mp3|max:11048',
         ]);
 
         $event = Event::findOrFail($id);
