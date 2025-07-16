@@ -8,13 +8,12 @@ class InvestorPages extends Controller
 {
     public function index()
     {
-        $events     = Event::all();
-        $pastEvents = $events->filter(function ($event) {
-            return $event->event_date < now();
-        });
-        $upcomingEvents = $events->filter(function ($event) {
-            return $event->event_date >= now();
-        });
+        $pastEvents = Event::where('event_date', '<', now())
+            ->orderBy('event_date', 'desc')
+            ->get();
+        $upcomingEvents = Event::where('event_date', '>=', now())
+            ->orderBy('event_date', 'desc')
+            ->get();
 
         // Pass the arrays to the view
         return view('frontend.investor.index', [
