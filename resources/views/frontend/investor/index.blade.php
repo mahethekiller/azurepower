@@ -33,6 +33,7 @@
 
     <div class="investor">
         <div class="container-fluid">
+            {{-- {{ dd($upcomingEvents); }} --}}
             <div class="row align-items-center">
 
                 <ul class="nav nav-tabs d-none d-lg-flex p-0" id="myTab" role="tablist">
@@ -76,53 +77,34 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th width="10%">Nov 01, 2025</th>
-                                                        <td width="50%">
-                                                            Details on upcoming events are not yet available.
-                                                        </td>
+
+                                                    @foreach ($upcomingEvents as $upcomingEvent):
+                                                    <tr width="100%">
+                                                        <th width="10%">{{ \Carbon\Carbon::parse($upcomingEvent->event_date)->format('M d, Y') }}</th>
+                                                        <td width="50%">Investor Presentation November 2023</td>
                                                         <td width="40%">
                                                             <div class="link-buttons">
-                                                                <a href="#" target="_blank" class="pdf-swap">Press
-                                                                    Release</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Presentation</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Registration </a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Webcast</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Podcast</a>
+                                                            @if (count($upcomingEvent->items) > 0)
+                                                                @foreach ($upcomingEvent->items as $item)
+                                                                    <a class="pdf-swap" href="{{ isset($item->link) ? $item->link : asset('storage/' . $item->file) }}" target="_blank">
+                                                                        {{ $item->button_text }}
+
+                                                                    </a>
+                                                                @endforeach
+                                                            @else
+                                                                <p class="text-center">No files available</p>
+                                                            @endif
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <th width="10%">Nov 01, 2025</th>
-                                                        <td width="50%">
-                                                            Details on upcoming events are not yet available.
-                                                        </td>
-                                                        <td width="40%">
-                                                            <div class="link-buttons">
-                                                                <a href="#" target="_blank" class="pdf-swap">Q1'22
-                                                                    Prepared Comments</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Transcript</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Registration </a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Webcast</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Podcast</a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
 
                                         <h3>Past Events</h3>
                                         <div class="responsive-table">
-                                            <table class="prReports reportTable table-data-bod" width="100%">
+                                            <table class="prReports reportTable table-data-bod " width="100%">
                                                 <thead>
                                                     <tr class="trHeaders mb-5">
                                                         <th class="pr-date-field">Dates</th>
@@ -131,60 +113,30 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
+                                                    @foreach ($pastEvents as $pastEvent)
                                                     <tr>
-                                                        <th width="10%">Nov 01, 2023</th>
-                                                        <td width="50%">
-                                                            Investor Presentation November 2023
-                                                        </td>
+                                                        <th width="10%">{{ \Carbon\Carbon::parse($pastEvent->event_date)->format('M d, Y') }}</th>
+                                                        <td width="50%">{{ $pastEvent->subject }}</td>
                                                         <td width="40%">
                                                             <div class="link-buttons">
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Press Release</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Presentation</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Registration </a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Webcast</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Podcast</a>
+                                                            @if (count($pastEvent->items) > 0)
+                                                                @foreach ($pastEvent->items as $item)
+                                                                    <a class="pdf-swap" href="{{ isset($item->link) ? $item->link : asset('storage/' . $item->file) }}" target="_blank">
+                                                                        {{ $item->button_text }}
+
+                                                                    </a>
+                                                                @endforeach
+                                                            @else
+                                                                <p class="text-center">No files available</p>
+                                                            @endif
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <th width="10%">Nov 01, 2023</th>
-                                                        <td width="50%">
-                                                            Management Update Call
-                                                        </td>
-                                                        <td width="40%">
-                                                            <div class="link-buttons">
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Q1'22 Prepared Comments</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Transcript</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Registration </a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Webcast</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Podcast</a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th width="10%">Nov 01, 2023</th>
-                                                        <td width="50%">
-                                                            Management Update Call
-                                                        </td>
-                                                        <td width="40%">
-                                                            <div class="link-buttons">
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">1Q'21 Prepared Comments</a>
-                                                                <a href="#" target="_blank"
-                                                                    class="pdf-swap">Registration </a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+
+                                                    @endforeach
+
+
                                                 </tbody>
                                             </table>
                                         </div>
