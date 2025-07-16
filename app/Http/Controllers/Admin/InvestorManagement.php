@@ -42,7 +42,20 @@ class InvestorManagement extends Controller
             'button_text.*' => 'required|string|max:255',
             'type.*'        => 'required|in:link,file',
             'link.*'        => 'nullable|url|required_if:type.*,link',
-            'file.*'        => 'nullable|file|required_if:type.*,file|mimes:pdf,doc,docx,jpg,png,mp3|max:11048',
+            'file.*'        => 'nullable|file|required_if:type.*,file|mimes:pdf,doc,docx,jpg,png|max:22048',
+        ], [
+            'button_text.*.required' => 'The Button Text field is required',
+            'button_text.*.string' => 'The Button Text field must be a string',
+            'button_text.*.max' => 'The Button Text field must be at most 255 characters',
+
+            'type.*.required' => 'The Type field is required',
+            'type.*.in' => 'The Type field must be either link or file',
+
+            'link.*.url' => 'The Link field must be a valid URL',
+            'link.*.required_if' => 'The Link field is required when Type is link',
+
+            'file.*.mimes' => 'The File field must be a file of type pdf, doc, docx, jpg, png,mp3,MP3',
+            'file.*.max' => 'The File field must not be greater than 22048 kilobytes',
         ]);
 
         // echo "<pre>";
@@ -114,7 +127,20 @@ class InvestorManagement extends Controller
             'link'          => 'array',
             'link.*'        => 'nullable|url|required_if:type.*,link',
             'file'          => 'array',
-            'file.*'        => 'nullable|file|mimes:pdf,doc,docx,jpg,png,mp3|max:11048',
+            'file.*'        => 'nullable|file|mimes:pdf,doc,docx,jpg,png,mp3,MP3|max:22048',
+        ], [
+            'button_text.*.required' => 'The Button Text field is required',
+            'button_text.*.string' => 'The Button Text field must be a string',
+            'button_text.*.max' => 'The Button Text field must be at most 255 characters',
+
+            'type.*.required' => 'The Type field is required',
+            'type.*.in' => 'The Type field must be either link or file',
+
+            'link.*.url' => 'The Link field must be a valid URL',
+            'link.*.required_if' => 'The Link field is required when Type is link',
+
+            'file.*.mimes' => 'The File field must be a file of type pdf, doc, docx, jpg, png,mp3,MP3',
+            'file.*.max' => 'The File field must not be greater than 22048 kilobytes',
         ]);
 
         $event = Event::findOrFail($id);
