@@ -57,7 +57,6 @@
     <!-- Header Start -->
     @include('layouts.partials.header')
     <!-- Header End -->
-
     {{ $slot }}
 
     @include('layouts.partials.footer')

@@ -15,11 +15,20 @@
                             <span class="pc-mtext">Dashboard</span>
                         </a>
                     </li>
-                    <li class="pc-item">
-                        <a href="{{ route('admin.warranty.index') }}" class="pc-link">
+                    <li class="pc-item pc-hasmenu">
+                        <a href="#" class="pc-link">
                             <span class="pc-micon"><img src="{{ asset('assets/images/edit.png') }}" /></span>
-                            <span class="pc-mtext">Warranty Management</span>
+                            <span class="pc-mtext">Investors</span>
+                            <span class="pc-arrow" style="float:right;"><i class="fa fa-chevron-down"></i></span>
                         </a>
+
+                        <ul class="pc-submenu">
+                            <li class="pc-item">
+                                <a href="{{ route('admin.investor.events.index') }}" class="pc-link">
+                                    <span class="pc-mtext">Events & Presentation</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="pc-item">
                         <a href="{{ route('admin.profile.edit') }}" class="pc-link">

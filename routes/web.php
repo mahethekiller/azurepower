@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\InvestorManagement;
 use App\Http\Controllers\Admin\UserManagement;
 use App\Http\Controllers\Admin\WarrantyManagement;
 use App\Http\Controllers\Frontend\InvestorPages;
@@ -51,6 +52,22 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', function () {
         return view('dashboard.admin');
     })->name('admin.dashboard');
+
+
+
+
+// Route::get('admin/investor/events', [InvestorManagement::class, 'events'])->name('admin.investor.events');
+
+Route::prefix('admin/investor/events')->name('admin.investor.events.')->group(function () {
+    Route::get('/', [InvestorManagement::class, 'index'])->name('index');
+    Route::get('/create', [InvestorManagement::class, 'create'])->name('create');
+    Route::post('/', [InvestorManagement::class, 'store'])->name('store');
+    Route::get('/{event}/edit', [InvestorManagement::class, 'edit'])->name('edit');
+    Route::put('/{event}', [InvestorManagement::class, 'update'])->name('update');
+    Route::delete('/{event}', [InvestorManagement::class, 'destroy'])->name('destroy');
+});
+
+
 
     // user management
     Route::get('/admin/users', [UserManagement::class, 'index'])->name('admin.users.index');

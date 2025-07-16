@@ -14,10 +14,10 @@
     <title>{{ $pageTitle }}</title>
     <meta name="description" content="{{ $pageDescription }}">
 
-    <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/ico" sizes="16x16">
+    <link rel="icon" href="{{ asset('assets/img/favicon.png') }}" type="image/ico" sizes="16x16">
 
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/customadmin.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -157,7 +157,7 @@
         <div class="footer-wrapper container-fluid">
             <div class="row">
                 <div class="col-sm my-1">
-                    <p class="m-0">Copyright © {{ date('Y') }} Greenlam Industries Ltd. </p>
+                    <p class="m-0">Copyright © {{ date('Y') }} Azure Power. </p>
                 </div>
             </div>
         </div>
@@ -196,9 +196,14 @@
     <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
+    <script>
+        var admin_url = "{{ url('admin') }}";
+        var base_url = "{{ url('/') }}";
+    </script>
+
     {{-- <script defer src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@5.14.2/dist/js/coreui.bundle.min.js"></script> --}}
     @if ($pageScript)
-        <script src="{{ asset('assets/customjs/' . $pageScript . '.js') }}"></script>
+        <script src="{{ asset('assets/customjs/admin/' . $pageScript . '.js') }}"></script>
     @endif
 </body>
 <!-- [Body] end -->
