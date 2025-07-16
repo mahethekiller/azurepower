@@ -42,7 +42,7 @@ class InvestorManagement extends Controller
             'button_text.*' => 'required|string|max:255',
             'type.*'        => 'required|in:link,file',
             'link.*'        => 'nullable|url|required_if:type.*,link',
-            'file.*'        => 'nullable|file|required_if:type.*,file|mimes:pdf,doc,docx,jpg,png|max:22048',
+            'file.*'        => 'nullable|file|required_if:type.*,file|mimes:pdf,doc,docx,jpg,png|max:52048',
         ], [
             'button_text.*.required' => 'The Button Text field is required',
             'button_text.*.string' => 'The Button Text field must be a string',
@@ -55,7 +55,7 @@ class InvestorManagement extends Controller
             'link.*.required_if' => 'The Link field is required when Type is link',
 
             'file.*.mimes' => 'The File field must be a file of type pdf, doc, docx, jpg, png,mp3,MP3',
-            'file.*.max' => 'The File field must not be greater than 22048 kilobytes',
+            'file.*.max' => 'The File field must not be greater than 52048 kilobytes',
         ]);
 
         // echo "<pre>";
@@ -127,7 +127,7 @@ class InvestorManagement extends Controller
             'link'          => 'array',
             'link.*'        => 'nullable|url|required_if:type.*,link',
             'file'          => 'array',
-            'file.*'        => 'nullable|file|mimes:pdf,doc,docx,jpg,png,mp3,MP3|max:22048',
+            'file.*'        => 'nullable|file|mimes:pdf,doc,docx,jpg,png,mp3,MP3|max:52048',
         ], [
             'button_text.*.required' => 'The Button Text field is required',
             'button_text.*.string' => 'The Button Text field must be a string',
@@ -140,7 +140,7 @@ class InvestorManagement extends Controller
             'link.*.required_if' => 'The Link field is required when Type is link',
 
             'file.*.mimes' => 'The File field must be a file of type pdf, doc, docx, jpg, png,mp3,MP3',
-            'file.*.max' => 'The File field must not be greater than 22048 kilobytes',
+            'file.*.max' => 'The File field must not be greater than 52048 kilobytes',
         ]);
 
         $event = Event::findOrFail($id);
