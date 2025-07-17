@@ -68,7 +68,7 @@
                                         <h3>Upcoming Events</h3>
 
                                         <div class="responsive-table">
-                                            <table class="table table-striped table-hover prReports" width="100%">
+                                            <table class="prReports reportTable table-data-bod" width="100%">
                                                 <thead>
                                                     <tr class="trHeaders mb-5">
                                                         <th class="pr-date-field">Dates</th>
@@ -104,7 +104,7 @@
 
                                         <h3>Past Events</h3>
                                         <div class="responsive-table">
-                                            <table class="table table-striped table-hover prReports " width="100%">
+                                            <table class="prReports reportTable table-data-bod " width="100%">
                                                 <thead>
                                                     <tr class="trHeaders mb-5">
                                                         <th class="pr-date-field">Dates</th>
