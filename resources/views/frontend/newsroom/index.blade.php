@@ -40,14 +40,12 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="events-and-presentations-tab" data-bs-toggle="tab"
                             data-bs-target="#events-and-presentations-tab-pane" type="button" role="tab"
-                            aria-controls="events-and-presentations-tab-pane" aria-selected="true">Events and
-                            Presentations</button>
+                            aria-controls="events-and-presentations-tab-pane" aria-selected="true">Press Release </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="press-releases-announcements-tab" data-bs-toggle="tab"
                             data-bs-target="#press-releases-announcements-tab-pane" type="button" role="tab"
-                            aria-controls="press-releases-announcements-tab-pane" aria-selected="false">Filings &
-                            Bondholders</button>
+                            aria-controls="press-releases-announcements-tab-pane" aria-selected="false">Shareholder Meetings</button>
                     </li>
                 </ul>
                 <div class="container">
@@ -58,88 +56,67 @@
                             <h2 class="accordion-header d-lg-none" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseOne" aria-expanded="true"
-                                    aria-controls="collapseOne">Events and Presentations</button>
+                                    aria-controls="collapseOne">Press Release</button>
                             </h2>
                             <div class="container">
                                 <div id="collapseOne" class="accordion-collapse collapse show  d-lg-block"
                                     aria-labelledby="headingOne" data-bs-parent="#myTabContent">
                                     <div class="accordion-body">
-                                        <h2>Events and Presentations</h2>
-                                        <h3>Upcoming Events</h3>
 
-                                        <div class="responsive-table">
-                                            <table class="prReports reportTable table-data-bod" width="100%">
-                                                <thead>
-                                                    <tr class="trHeaders mb-5">
-                                                        <th class="pr-date-field">Dates</th>
-                                                        <th class="pr-title-field">Event Subject</th>
-                                                        <th class="pr-document-field">Supporting links</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
 
-                                                    @foreach ($upcomingEvents as $upcomingEvent):
-                                                    <tr width="100%">
-                                                        <th width="10%">{{ \Carbon\Carbon::parse($upcomingEvent->event_date)->format('M d, Y') }}</th>
-                                                        <td width="50%">Investor Presentation November 2023</td>
-                                                        <td width="40%">
-                                                            <div class="link-buttons">
-                                                            @if (count($upcomingEvent->items) > 0)
-                                                                @foreach ($upcomingEvent->items as $item)
-                                                                    <a class="pdf-swap" href="{{ isset($item->link) ? $item->link : asset('storage/' . $item->file) }}" target="_blank">
-                                                                        {{ $item->button_text }}
+                                        {{-- <div class="accordion" id="documentAccordion"> --}}
+                                        @php
+                                            $groupedDocuments = $documents->groupBy(function ($item) {
+                                                return $item->doc_date->format('Y');
+                                            });
+                                        @endphp
 
-                                                                    </a>
+                                        @foreach ($groupedDocuments as $year => $yearDocuments)
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading-{{ $year }}">
+                                                    <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse"
+                                                        data-bs-target="#collapse-{{ $year }}"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapse-{{ $year }}">
+                                                        {{ $year }}
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse-{{ $year }}"
+                                                    class="accordion-collapse collapse"
+                                                    aria-labelledby="heading-{{ $year }}"
+                                                    data-bs-parent="#documentAccordion">
+                                                    <div class="accordion-body">
+                                                        <div class="table-responsive">
+                                                            <div class="table table-striped table-hover prReports">
+                                                                @foreach ($yearDocuments as $document)
+                                                                    <div class="row" style="width: 100%;">
+                                                                        <div class="col-2">
+                                                                            {{ $document->doc_date->format('M d, Y') }}
+                                                                        </div>
+                                                                        <div class="col-5">
+                                                                            {{ $document->title }}
+                                                                        </div>
+                                                                        <div class="col-5">
+                                                                            <div class="link-buttons">
+                                                                                <a class="pdf-swap"
+                                                                                    href="{{ asset('storage/' . $document->file) }}"
+                                                                                    target="_blank">
+                                                                                    Download
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 @endforeach
-                                                            @else
-                                                                <p class="text-center">No files available</p>
-                                                            @endif
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                        <h3>Past Events</h3>
-                                        <div class="responsive-table">
-                                            <table class="prReports reportTable table-data-bod " width="100%">
-                                                <thead>
-                                                    <tr class="trHeaders mb-5">
-                                                        <th class="pr-date-field">Dates</th>
-                                                        <th class="pr-title-field">Event Subject</th>
-                                                        <th class="pr-document-field">Supporting links</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    @foreach ($pastEvents as $pastEvent)
-                                                    <tr>
-                                                        <th width="10%">{{ \Carbon\Carbon::parse($pastEvent->event_date)->format('M d, Y') }}</th>
-                                                        <td width="50%">{{ $pastEvent->subject }}</td>
-                                                        <td width="40%">
-                                                            <div class="link-buttons">
-                                                            @if (count($pastEvent->items) > 0)
-                                                                @foreach ($pastEvent->items as $item)
-                                                                    <a class="pdf-swap" href="{{ isset($item->link) ? $item->link : asset('storage/' . $item->file) }}" target="_blank">
-                                                                        {{ $item->button_text }}
-
-                                                                    </a>
-                                                                @endforeach
-                                                            @else
-                                                                <p class="text-center">No files available</p>
-                                                            @endif
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-
-                                                    @endforeach
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                        {{-- </div> --}}
 
 
-                                                </tbody>
-                                            </table>
-                                        </div>
 
 
                                     </div>
@@ -152,16 +129,15 @@
                             aria-labelledby="press-releases-announcements-tab" tabindex="0">
                             <h2 class="accordion-header d-lg-none" id="headingFour">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour" aria-expanded="false"
-                                    aria-controls="collapseFour">
-                                    Filings & Bondholders
+                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Shareholder Meetings
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse d-lg-block"
                                 aria-labelledby="headingFour" data-bs-parent="#myTabContent">
                                 <div class="accordion-body">
 
-                                    <h2>Filings & Bondholders</h2>
+
 
 
 
@@ -244,139 +220,7 @@
                                                                         </div>
                                                                     </td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <th>Nov 01, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power Global Limited
-                                                                            Announces Final Decision of NYSE Committee
-                                                                            Following Appeal of NYSE Delisting
-                                                                            Determination</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Oct 12, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power Files Fiscal Year
-                                                                            2022 Annual Report on Form 20-F</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Oct 12, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">M.S Unnikrishnan replaces
-                                                                            Alan Rosling as Chairman of the Board of
-                                                                            Azure
-                                                                            Power</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Sep 29, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power Announces Results
-                                                                            of the 2023 Annual Meeting of
-                                                                            Shareholders</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Aug 21, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power Global Limited to
-                                                                            hold 2023 Annual General Meeting on
-                                                                            September 29, 2023</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Jul 13, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power Global Limited -
-                                                                            Update</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Jul 13, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Change in Independent
-                                                                            Registered Public Accounting Firm</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Jun 16, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power announces changes
-                                                                            in Board of Directors</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>May 03, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power Global Limited -
-                                                                            Changes to Azure Power's Management
-                                                                            Team</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -435,139 +279,7 @@
                                                                         </div>
                                                                     </td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <th>Nov 01, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power Global Limited
-                                                                            Announces Final Decision of NYSE Committee
-                                                                            Following Appeal of NYSE Delisting
-                                                                            Determination</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Oct 12, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power Files Fiscal Year
-                                                                            2022 Annual Report on Form 20-F</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Oct 12, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">M.S Unnikrishnan replaces
-                                                                            Alan Rosling as Chairman of the Board of
-                                                                            Azure
-                                                                            Power</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Sep 29, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power Announces Results
-                                                                            of the 2023 Annual Meeting of
-                                                                            Shareholders</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Aug 21, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power Global Limited to
-                                                                            hold 2023 Annual General Meeting on
-                                                                            September 29, 2023</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Jul 13, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power Global Limited -
-                                                                            Update</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Jul 13, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Change in Independent
-                                                                            Registered Public Accounting Firm</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Jun 16, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power announces changes
-                                                                            in Board of Directors</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>May 03, 2023</th>
-                                                                    <td>
-                                                                        <a href="#">Azure Power Global Limited -
-                                                                            Changes to Azure Power's Management
-                                                                            Team</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="link-buttons">
-                                                                            <a href="#" target="_blank"
-                                                                                class="pdf-swap"
-                                                                                title="PDF, opens in a new window">PDF</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+
                                                             </tbody>
                                                         </table>
                                                     </div>

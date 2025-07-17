@@ -80,7 +80,12 @@
 
                                                     @foreach ($upcomingEvents as $upcomingEvent):
                                                     <tr width="100%">
-                                                        <th width="10%">{{ \Carbon\Carbon::parse($upcomingEvent->event_date)->format('M d, Y') }}</th>
+                                                        <th width="10%">
+                                                            {{-- {{ \Carbon\Carbon::parse($upcomingEvent->event_date)->format('M d, Y') }} --}}
+
+                                                            {{ $upcomingEvent->event_date->format('M d, Y') }}
+
+                                                        </th>
                                                         <td width="50%">Investor Presentation November 2023</td>
                                                         <td width="40%">
                                                             <div class="link-buttons">
@@ -116,7 +121,7 @@
 
                                                     @foreach ($pastEvents as $pastEvent)
                                                     <tr>
-                                                        <th width="10%">{{ \Carbon\Carbon::parse($pastEvent->event_date)->format('M d, Y') }}</th>
+                                                        <th width="10%">{{ $pastEvent->event_date->format('M d, Y') }}</th>
                                                         <td width="50%">{{ $pastEvent->subject }}</td>
                                                         <td width="40%">
                                                             <div class="link-buttons">

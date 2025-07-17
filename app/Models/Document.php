@@ -9,6 +9,10 @@ class Document extends Model
     //
     use HasFactory;
 
+    protected $casts = [
+        'doc_date' => 'date',
+    ];
+
     protected $fillable = [
         'title',
         'doc_date',
