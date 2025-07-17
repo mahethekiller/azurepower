@@ -25,7 +25,7 @@
     <div class="form-group">
         <label for="event_date">Event Date</label>
         <input type="date" name="event_date" class="form-control"
-            value="{{ old('event_date', $event->event_date ?? '') }}" required>
+            value="{{ old('event_date', isset($event) ? $event->event_date : '') }}" required>
     </div>
 
     <div class="form-group">
