@@ -1,0 +1,114 @@
+<?php
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Document;
+use App\Models\DocumentType;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+class DocumentController extends Controller
+{
+    public function index()
+    {
+        $documents = Document::with('documentType')->latest()->paginate(10);
+
+        $documentTypes = DocumentType::all(); // ✅ fetch types
+
+        return view('admin.documents.index', compact('documents', 'documentTypes'));
+    }
+
+    public function typeDocuments($id)
+    {
+        $documentType = DocumentType::findOrFail($id);
+        $documents    = Document::where('document_type_id', $id)
+            ->latest()
+            ->paginate(10);
+
+        return view('admin.documents.type_documents', compact('documentType', 'documents'));
+    }
+
+    public function create($document_type_id)
+    {
+        $documentType = DocumentType::findOrFail($document_type_id);
+
+        return view('admin.documents.form', [
+            'documentType' => $documentType,
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title'    => 'required|max:500',
+            'doc_date' => 'required|date',
+            'file'     => 'required|mimes:pdf,doc,docx,jpg,jpeg,png',
+        ]);
+
+        // Handle file upload
+        $uploadedFile = $request->file('file');
+        $fileName     = 'document-file-' . time() . '.' . $uploadedFile->getClientOriginalExtension();
+        $filePath     = $uploadedFile->storeAs('documents', $fileName, 'public');
+
+        Document::create([
+            'title'            => $request->title,
+            'doc_date'         => $request->doc_date,
+            'document_type_id' => $request->document_type_id, // ✅ save type
+            'file'             => $filePath,
+        ]);
+        return redirect()->back()->with('success', 'Document Added successfully.');
+        // return redirect()->route('admin.documents.index')->with('success', 'Document created successfully.');
+    }
+
+    public function edit(Document $document)
+    {
+        $types        = DocumentType::all();
+        $documentType = $document->documentType; // Get the type of the current document
+
+        return view('admin.documents.form', [
+            'document'     => $document,
+            'types'        => $types,
+            'documentType' => $documentType,
+        ]);
+    }
+
+    public function update(Request $request, Document $document)
+    {
+        $request->validate([
+            'title'            => 'required|string|max:500',
+            'doc_date'         => 'required|date',
+            'document_type_id' => 'required|exists:document_types,id',
+            'file'             => 'nullable|file|mimes:pdf,doc,docx,jpg,jpeg,png|max:10240',
+        ]);
+
+        $data = $request->only(['title', 'doc_date', 'document_type_id']);
+
+// If a new file is uploaded
+        if ($request->hasFile('file')) {
+            $fileName = 'document-file-' . time() . '.' . $request->file('file')->getClientOriginalExtension();
+            $filePath = $request->file('file')->storeAs('documents', $fileName, 'public');
+
+            // Optional: delete old file
+            if ($document->file && \Storage::disk('public')->exists($document->file)) {
+                \Storage::disk('public')->delete($document->file);
+            }
+
+            $data['file'] = $filePath;
+        }
+
+        $document->update($data);
+
+        return redirect()->back()->with('success', 'Document updated successfully.');
+    }
+
+    public function destroy(Document $document)
+    {
+        if ($document->file && Storage::disk('public')->exists($document->file)) {
+            Storage::disk('public')->delete($document->file);
+        }
+
+        $document->delete();
+
+        return redirect()->route('admin.documents.index')->with('success', 'Document deleted successfully.');
+    }
+}

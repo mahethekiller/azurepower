@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Seeders;
 
 use App\Models\User;
@@ -15,17 +14,23 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Create roles
-        $adminRole = Role::create(['name' => 'admin']);
-        $editorRole = Role::create(['name' => 'editor']);
-        $userRole = Role::create(['name' => 'user']);
+        $adminRole  = Role::firstOrCreate(['name' => 'admin']);
+        $editorRole = Role::firstOrCreate(['name' => 'editor']);
+        $userRole   = Role::firstOrCreate(['name' => 'user']);
 
         // Create a user and assign the 'admin' role
-        $user = User::factory()->create([
-            'name' => 'Mahendra',
-            'email' => 'test@example.com',
-            'password' => Hash::make('12345678'),
-        ]);
+        // Create admin user if not exists
+        $user = User::firstOrCreate(
+            ['email' => 'test@example.com'], // Lookup by email
+            [
+                'name'     => 'Mahendra',
+                'password' => Hash::make('12345678'),
+            ]
+        );
         $user->assignRole($adminRole);
+
+        $this->call([
+            DocumentTypesSeeder::class,
+        ]);
     }
 }
-

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\InvestorManagement;
 use App\Http\Controllers\Admin\UserManagement;
 use App\Http\Controllers\Admin\WarrantyManagement;
@@ -66,6 +67,22 @@ Route::prefix('admin/investor/events')->name('admin.investor.events.')->group(fu
     Route::put('/{event}', [InvestorManagement::class, 'update'])->name('update');
     Route::delete('/{event}', [InvestorManagement::class, 'destroy'])->name('destroy');
 });
+
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('documents', App\Http\Controllers\Admin\DocumentController::class);
+});
+
+
+
+// Document type listing
+Route::get('/admin/documents/types', [DocumentController::class, 'types'])->name('documents.types');
+// View all documents for a specific type
+Route::get('/admin/documents/type/{id}', [DocumentController::class, 'typeDocuments'])->name('documents.type');
+Route::get('/admin/documents/create/{document_type}', [DocumentController::class, 'create'])->name('documents.create');
+Route::post('/admin/documents/store', [DocumentController::class, 'store'])->name('documents.store');
+
+
 
 
 
