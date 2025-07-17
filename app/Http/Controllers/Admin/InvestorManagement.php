@@ -42,7 +42,7 @@ class InvestorManagement extends Controller
             'button_text.*' => 'required|string|max:255',
             'type.*'        => 'required|in:link,file',
             'link.*'        => 'nullable|url|required_if:type.*,link',
-            'file.*'        => 'nullable|file|required_if:type.*,file|mimes:pdf,doc,docx,jpg,png|max:52048',
+            'file.*'        => 'nullable|file|required_if:type.*,file|mimes:pdf,doc,docx,jpg,png,mp3,MP3|max:52048',
         ], [
             'button_text.*.required' => 'The Button Text field is required',
             'button_text.*.string' => 'The Button Text field must be a string',
