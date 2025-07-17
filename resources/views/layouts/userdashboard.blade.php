@@ -48,7 +48,7 @@
     </div>
 
     @if (Auth::user()->hasRole('admin') || Auth::user()->hasRole('editor'))
-        @include('layouts.partials.adminsidebar')
+        @include('layouts.partials.adminsidebar', ['documentTypes' => \App\Models\DocumentType::all()])
     @elseif(Auth::user()->hasRole('user'))
         @include('layouts.partials.usersidebar')
     {{-- @elseif(Auth::user()->hasRole('editor'))
