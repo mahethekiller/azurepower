@@ -76,6 +76,12 @@ Route::get('/admin/documents/create/{document_type}', [DocumentController::class
 Route::post('/admin/documents/store', [DocumentController::class, 'store'])->name('documents.store');
 
 
+Route::get('/admin/import-documents', function () {
+    return view('admin.documents.import-documents');
+});
+Route::post('/import-documents', [DocumentController::class, 'import']);
+
+
 
 
 

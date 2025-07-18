@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Document;
 use App\Models\DocumentType;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,6 +17,12 @@ class DocumentController extends Controller
         $documentTypes = DocumentType::all(); // ✅ fetch types
 
         return view('admin.documents.index', compact('documents', 'documentTypes'));
+    }
+
+    public function show($id)
+    {
+        // Optional: return a view, JSON, or redirect
+        return redirect()->route('admin.documents.index');
     }
 
     public function typeDocuments($id)
@@ -43,7 +50,7 @@ class DocumentController extends Controller
             'title'    => 'required|max:500',
             'doc_date' => 'required|date',
             'file'     => 'nullable|mimes:pdf,doc,docx,jpg,jpeg,png',
-            'link'         => 'nullable|url',
+            'link'     => 'nullable|url',
 
         ]);
 
@@ -59,7 +66,7 @@ class DocumentController extends Controller
             'doc_date'         => $request->doc_date,
             'document_type_id' => $request->document_type_id, // ✅ save type
             'file'             => $filePath ?? null,
-            'link'             => $request->link
+            'link'             => $request->link,
         ]);
         return redirect()->back()->with('success', 'Document Added successfully.');
         // return redirect()->route('admin.documents.index')->with('success', 'Document created successfully.');
@@ -116,6 +123,35 @@ class DocumentController extends Controller
         $document->delete();
 
         // return redirect()->route('admin.documents.index')->with('success', 'Document deleted successfully.');
-        return redirect()->back()->with('success', 'Document updated successfully.');
+        return redirect()->back()->with('success', 'Document Deleted successfully.');
     }
+
+    public function import(Request $request)
+    {
+        // Validate file upload
+        $request->validate([
+            'csv_file' => 'required|mimes:csv,txt|max:2048',
+        ]);
+
+        $file = $request->file('csv_file');
+
+        // Open and read CSV
+        if (($handle = fopen($file, 'r')) !== false) {
+            $header = fgetcsv($handle, 1000, ','); // Read header row
+
+            while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+                Document::create([
+                    'document_type_id' => $data[0],
+                    'title'            => trim($data[1]),
+                    'doc_date'         => Carbon::createFromFormat('d-m-Y', $data[2])->format('Y-m-d'), // Convert date
+                    'file'             => 'documents/' . mb_convert_encoding(trim($data[3]), 'UTF-8', 'UTF-8'),
+                ]);
+            }
+
+            fclose($handle);
+        }
+
+        return back()->with('success', 'CSV Imported Successfully!');
+    }
+
 }
