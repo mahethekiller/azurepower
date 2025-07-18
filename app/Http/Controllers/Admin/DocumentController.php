@@ -115,6 +115,7 @@ class DocumentController extends Controller
 
         $document->delete();
 
-        return redirect()->route('admin.documents.index')->with('success', 'Document deleted successfully.');
+        // return redirect()->route('admin.documents.index')->with('success', 'Document deleted successfully.');
+        return redirect()->back()->with('success', 'Document updated successfully.');
     }
 }
