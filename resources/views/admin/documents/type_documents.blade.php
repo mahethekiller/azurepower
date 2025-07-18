@@ -1,4 +1,4 @@
-<x-userdashboard-layout :pageTitle="$documentType->name" :pageDescription="'Documents under ' . $documentType->name" :pageScript="''">
+<x-userdashboard-layout :pageTitle="$documentType->name" :pageDescription="'Documents under ' . $documentType->name" :pageScript="$pageScript">
     <div class="row">
         <div class="col-md-12 col-xl-12">
             <div class="card">
@@ -14,60 +14,19 @@
                     @endif
 
                     {{-- Documents Table --}}
-                    @if ($documents->count())
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Date</th>
+                    <table id="documents-table" class="table table-bordered"
+                        data-url="{{ route('admin.documents.type', $documentType->id) }}">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th>Link</th>
+                                <th>File</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                    </table>
 
-                                    <th>Link</th>
-                                     <th>File</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($documents as $doc)
-                                    <tr>
-                                        <td>{{ $doc->title }}</td>
-                                        <td>{{ $doc->doc_date }}</td>
-                                        <td>
-                                            @if ($doc->link)
-                                                <a href="{{ $doc->link }}" target="_blank">{{ $doc->link }}</a>
-                                            @else
-                                                N/A
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($doc->file)
-                                                <a class="btn btn-sm btn-info" href="{{ asset('storage/' . $doc->file) }}" target="_blank">View</a>
-                                            @else
-                                                N/A
-                                            @endif
-                                        </td>
-
-                                        <td>
-                                        {{-- Edit Button --}}
-                                            <a href="{{ route('admin.documents.edit', $doc->id) }}" class="btn btn-sm btn-primary">Edit</a>
-
-                                        <form action="{{ route('admin.documents.destroy', $doc->id) }}"
-                                            method="POST" class="d-inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button onclick="return confirm('Delete this document?')"
-                                                class="btn btn-sm btn-danger">Delete</button>
-                                        </form>
-                                    </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-
-                        {{-- Pagination --}}
-                        {{ $documents->links() }}
-                    @else
-                        <p>No documents found under this type.</p>
-                    @endif
                 </div>
             </div>
         </div>

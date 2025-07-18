@@ -62,6 +62,10 @@ Route::prefix('admin/investor/events')->name('admin.investor.events.')->group(fu
 });
 
 
+Route::get('admin/document-types/{id}/documents', [DocumentController::class, 'typeDocuments'])->name('admin.documents.type');
+
+
+
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('documents', App\Http\Controllers\Admin\DocumentController::class);
 });
