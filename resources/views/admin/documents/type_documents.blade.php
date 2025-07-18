@@ -20,7 +20,9 @@
                                 <tr>
                                     <th>Title</th>
                                     <th>Date</th>
-                                    <th>File</th>
+
+                                    <th>Link</th>
+                                     <th>File</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -30,8 +32,20 @@
                                         <td>{{ $doc->title }}</td>
                                         <td>{{ $doc->doc_date }}</td>
                                         <td>
-                                            <a class="btn btn-sm btn-info" href="{{ asset('storage/' . $doc->file) }}" target="_blank">View</a>
+                                            @if ($doc->link)
+                                                <a href="{{ $doc->link }}" target="_blank">{{ $doc->link }}</a>
+                                            @else
+                                                N/A
+                                            @endif
                                         </td>
+                                        <td>
+                                            @if ($doc->file)
+                                                <a class="btn btn-sm btn-info" href="{{ asset('storage/' . $doc->file) }}" target="_blank">View</a>
+                                            @else
+                                                N/A
+                                            @endif
+                                        </td>
+
                                         <td>
                                         {{-- Edit Button --}}
                                             <a href="{{ route('admin.documents.edit', $doc->id) }}" class="btn btn-sm btn-primary">Edit</a>

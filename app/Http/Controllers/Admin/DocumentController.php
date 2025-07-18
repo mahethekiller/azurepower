@@ -42,19 +42,24 @@ class DocumentController extends Controller
         $request->validate([
             'title'    => 'required|max:500',
             'doc_date' => 'required|date',
-            'file'     => 'required|mimes:pdf,doc,docx,jpg,jpeg,png',
+            'file'     => 'nullable|mimes:pdf,doc,docx,jpg,jpeg,png',
+            'link'         => 'nullable|url',
+
         ]);
 
         // Handle file upload
-        $uploadedFile = $request->file('file');
-        $fileName     = 'document-file-' . time() . '.' . $uploadedFile->getClientOriginalExtension();
-        $filePath     = $uploadedFile->storeAs('documents', $fileName, 'public');
+        if ($request->hasFile('file')) {
+            $uploadedFile = $request->file('file');
+            $fileName     = 'document-file-' . time() . '.' . $uploadedFile->getClientOriginalExtension();
+            $filePath     = $uploadedFile->storeAs('documents', $fileName, 'public');
+        }
 
         Document::create([
             'title'            => $request->title,
             'doc_date'         => $request->doc_date,
             'document_type_id' => $request->document_type_id, // ✅ save type
-            'file'             => $filePath,
+            'file'             => $filePath ?? null,
+            'link'             => $request->link
         ]);
         return redirect()->back()->with('success', 'Document Added successfully.');
         // return redirect()->route('admin.documents.index')->with('success', 'Document created successfully.');
@@ -79,9 +84,10 @@ class DocumentController extends Controller
             'doc_date'         => 'required|date',
             'document_type_id' => 'required|exists:document_types,id',
             'file'             => 'nullable|file|mimes:pdf,doc,docx,jpg,jpeg,png|max:10240',
+            'link'             => 'nullable|url',
         ]);
 
-        $data = $request->only(['title', 'doc_date', 'document_type_id']);
+        $data = $request->only(['title', 'doc_date', 'document_type_id', 'link']);
 
 // If a new file is uploaded
         if ($request->hasFile('file')) {
