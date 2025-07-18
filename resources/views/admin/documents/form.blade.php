@@ -43,7 +43,7 @@
                                 type="date"
                                 name="doc_date"
                                 class="form-control"
-                                value="{{ old('doc_date', $document->doc_date->format('Y-m-d') ?? '') }}"
+                                value="{{ old('doc_date', isset($document->doc_date) ? $document->doc_date->format('Y-m-d') ?? '') }}"
                                 required>
                         </div>
 
