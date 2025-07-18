@@ -43,14 +43,14 @@
                                 type="date"
                                 name="doc_date"
                                 class="form-control"
-                                value="{{ old('doc_date', isset($document->doc_date) ? $document->doc_date->format('Y-m-d') ?? '') }}"
+                                value="{{ old('doc_date', isset($document->doc_date) ? $document->doc_date->format('Y-m-d') : '') }}"
                                 required>
                         </div>
 
                         <!-- File Upload -->
                         <div class="form-group">
                             <label for="file">File (PDF, DOC, Image)</label>
-                            <input type="file" name="file" class="form-control" {{ isset($document->id) ? '' : 'required' }}>
+                            <input type="file" name="file" class="form-control">
 
                             {{-- If editing, show existing file --}}
                             @if (isset($document->file) && $document->file)
@@ -64,6 +64,18 @@
                                 <input type="hidden" name="existing_file" value="{{ $document->file }}">
                             @endif
                         </div>
+
+                        <!-- Link Input -->
+                        <div class="form-group">
+                            <label for="link">Link</label>
+                            <input
+                                type="url"
+                                name="link"
+                                class="form-control"
+                                value="{{ old('link', $document->link ?? '') }}"
+                                placeholder="Enter Link">
+                        </div>
+
 
                         <!-- Submit Button -->
                         <button type="submit" class="btn btn-success">

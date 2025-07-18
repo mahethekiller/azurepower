@@ -18,6 +18,7 @@ class Document extends Model
         'doc_date',
         'file',
         'document_type_id',
+        'link',
     ];
 
     public function type()
