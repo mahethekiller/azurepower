@@ -7,6 +7,7 @@ use App\Models\DocumentType;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\DataTables;
 
 class DocumentController extends Controller
 {
@@ -64,11 +65,10 @@ class DocumentController extends Controller
 
 
         $documentType = DocumentType::findOrFail($id);
-        $documents    = Document::where('document_type_id', $id)
-            ->latest()
-            ->paginate(10);
-
-        return view('admin.documents.type_documents', compact('documentType', 'documents'));
+        return view('admin.documents.type_documents', [
+            'documentType' => $documentType,
+            'pageScript'   => 'documents',
+        ]);
     }
 
     public function create($document_type_id)
