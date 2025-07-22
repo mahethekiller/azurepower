@@ -126,25 +126,51 @@ class DocumentController extends Controller
         return redirect()->back()->with('success', 'Document Deleted successfully.');
     }
 
+    public function showImportForm()
+    {
+        // Fetch all document types from document_types table
+        $documentTypes = DocumentType::all();
+
+        // Pass to the view
+        return view('admin.documents.import-documents', compact('documentTypes'));
+    }
+
     public function import(Request $request)
     {
-        // Validate file upload
+        // Validate request
         $request->validate([
-            'csv_file' => 'required|mimes:csv,txt|max:2048',
+            'csv_file'         => 'required|mimes:csv,txt|max:2048',
+            'document_type_id' => 'required|exists:document_types,id',
+            'file_type'        => 'required|in:file,link',
         ]);
 
-        $file = $request->file('csv_file');
+        $fileType       = $request->input('file_type');        // file or link
+        $documentTypeId = $request->input('document_type_id'); // Selected type
+        $file           = $request->file('csv_file');
 
-        // Open and read CSV
         if (($handle = fopen($file, 'r')) !== false) {
-            $header = fgetcsv($handle, 1000, ','); // Read header row
+            $header = fgetcsv($handle, 1000, ','); // Skip header row
 
             while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+                // Common fields
+                $title   = trim($data[1]);
+                $docDate = Carbon::createFromFormat('d-m-Y', $data[2])->format('Y-m-d');
+
+                // Determine file or link
+                $fileValue = null;
+                $linkValue = null;
+                if ($fileType === 'file') {
+                    $fileValue = 'documents/' . mb_convert_encoding(trim($data[3]), 'UTF-8', 'UTF-8');
+                } else if ($fileType === 'link') {
+                    $linkValue = trim($data[4]);
+                }
+
                 Document::create([
-                    'document_type_id' => $data[0],
-                    'title'            => trim($data[1]),
-                    'doc_date'         => Carbon::createFromFormat('d-m-Y', $data[2])->format('Y-m-d'), // Convert date
-                    'file'             => 'documents/' . mb_convert_encoding(trim($data[3]), 'UTF-8', 'UTF-8'),
+                    'document_type_id' => $documentTypeId,
+                    'title'            => $title,
+                    'doc_date'         => $docDate,
+                    'file'             => $fileValue,
+                    'link'             => $linkValue,
                 ]);
             }
 

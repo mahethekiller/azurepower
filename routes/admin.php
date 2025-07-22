@@ -80,10 +80,9 @@ Route::get('/admin/documents/create/{document_type}', [DocumentController::class
 Route::post('/admin/documents/store', [DocumentController::class, 'store'])->name('documents.store');
 
 
-Route::get('/admin/import-documents', function () {
-    return view('admin.documents.import-documents');
-});
-Route::post('/import-documents', [DocumentController::class, 'import']);
+Route::get('/admin/import-documents', [DocumentController::class, 'showImportForm'])->name('documents.import-form');
+Route::post('/admin/documents/import-documents', [DocumentController::class, 'import'])->name('admin.documents.import');
+
 
 
 
