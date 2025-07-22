@@ -3,7 +3,7 @@
  @foreach ($slides as $slide)
      <!-- Page Header Start -->
      <div class="page-header parallaxie investor-page-banner">
-         <img class="internal-banner" src="{{ asset('assets/' . $slide->image) }}" />
+         <img class="internal-banner" src="{{ asset('storage/'.$slide->image) }}" />
          <div class="container">
              <div class="row">
                  <div class="col-md-12">
