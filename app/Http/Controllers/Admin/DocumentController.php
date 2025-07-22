@@ -27,6 +27,40 @@ class DocumentController extends Controller
 
     public function typeDocuments($id)
     {
+
+        if (request()->ajax()) {
+            $documents = Document::where('document_type_id', $id)->latest();
+
+            return DataTables::of($documents)
+                ->addColumn('link', function ($doc) {
+                    return $doc->link
+                    ? '<a href="' . $doc->link . '" target="_blank">' . $doc->link . '</a>'
+                    : 'N/A';
+                })
+                ->addColumn('file', function ($doc) {
+                    return $doc->file
+                    ? '<a class="btn btn-sm btn-info" href="' . asset('storage/' . $doc->file) . '" target="_blank">View</a>'
+                    : 'N/A';
+                })
+                ->addColumn('action', function ($doc) {
+                    $editUrl   = route('admin.documents.edit', $doc->id);
+                    $deleteUrl = route('admin.documents.destroy', $doc->id);
+                    return '
+                    <a href="' . $editUrl . '" class="btn btn-sm btn-primary">Edit</a>
+                    <form action="' . $deleteUrl . '" method="POST" class="d-inline">
+                        ' . csrf_field() . method_field('DELETE') . '
+                        <button onclick="return confirm(\'Delete this document?\')" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                ';
+                })
+                ->editColumn('doc_date', function ($doc) {
+                    // Send formatted date for display
+                    return $doc->doc_date ? $doc->doc_date->format('d-m-Y') : '';
+                })
+                ->rawColumns(['link', 'file', 'action']) // Allow HTML
+                ->make(true);
+        }
+
         $documentType = DocumentType::findOrFail($id);
         $documents    = Document::where('document_type_id', $id)
             ->latest()
