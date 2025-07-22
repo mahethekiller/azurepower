@@ -62,6 +62,8 @@ class DocumentController extends Controller
                 ->make(true);
         }
 
+
+
         $documentType = DocumentType::findOrFail($id);
         return view('admin.documents.type_documents', [
             'documentType' => $documentType,
