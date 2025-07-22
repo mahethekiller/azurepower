@@ -1,4 +1,4 @@
-<x-userdashboard-layout :pageTitle="$documentType->name" :pageDescription="'Documents under ' . $documentType->name" :pageScript="$pageScript">
+<x-userdashboard-layout :pageTitle="$documentType->name" :pageDescription="'Documents under ' . $documentType->name" :pageScript="">
     <div class="row">
         <div class="col-md-12 col-xl-12">
             <div class="card">
