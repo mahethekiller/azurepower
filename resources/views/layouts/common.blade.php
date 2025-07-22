@@ -91,6 +91,8 @@
     <script src="{{ asset('assets/js/wow.js') }}"></script>
     <!-- Main Custom js file -->
     <script src="{{ asset('assets/js/function.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.js') }}"></script>
+
 
     @if ($pageScript)
         <script src="{{ asset('assets/customjs/' . $pageScript . '.js') }}"></script>
