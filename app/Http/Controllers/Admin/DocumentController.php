@@ -28,6 +28,7 @@ class DocumentController extends Controller
 
     public function typeDocuments($id)
     {
+
         if (request()->ajax()) {
             $documents = Document::where('document_type_id', $id)->latest();
 
