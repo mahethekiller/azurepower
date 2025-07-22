@@ -45,6 +45,13 @@
                     </a>
                 </li>
 
+                <li class="pc-item">
+                        <a href="{{ route('admin.slides.index') }}" class="pc-link">
+                            <span class="pc-micon"><img src="{{ asset('assets/images/user.png') }}" /></span>
+                            <span class="pc-mtext">Sliders</span>
+                        </a>
+                    </li>
+
 
                 @if (auth()->user()->hasRole('admin'))
                     <li class="pc-item">
@@ -57,6 +64,12 @@
                         <a href="{{ route('documents.import-form') }}" class="pc-link">
                             <span class="pc-micon"><img src="{{ asset('assets/images/user.png') }}" /></span>
                             <span class="pc-mtext">Import Documents</span>
+                        </a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{{ route('admin.menus.index') }}" class="pc-link">
+                            <span class="pc-micon"><img src="{{ asset('assets/images/user.png') }}" /></span>
+                            <span class="pc-mtext">Menus</span>
                         </a>
                     </li>
                 @endif

@@ -94,10 +94,10 @@
                                                                         <div class="col-2">
                                                                             {{ $document->doc_date->format('M d, Y') }}
                                                                         </div>
-                                                                        <div class="col-5">
+                                                                        <div class="col-8">
                                                                             {{ $document->title }}
                                                                         </div>
-                                                                        <div class="col-5">
+                                                                        <div class="col-2">
                                                                             <div class="link-buttons">
                                                                                 <a class="pdf-swap"
                                                                                     href="{{ asset('storage/' . $document->file) }}"
