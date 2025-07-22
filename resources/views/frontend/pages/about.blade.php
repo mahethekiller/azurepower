@@ -76,7 +76,7 @@
 					<div class="">
 						<div class="about-img-3">
 							<figure class="reveal image-anime">
-								<img src="{{ asset('assets/img/img/mission-img.png')}}" alt="">
+								<img src="{{ asset('assets/img/mission-img.png')}}" alt="">
 							</figure>
 						</div>
 						<div class="text-left pt-4">
