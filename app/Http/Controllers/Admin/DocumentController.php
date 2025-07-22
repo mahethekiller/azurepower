@@ -61,6 +61,8 @@ class DocumentController extends Controller
                 ->make(true);
         }
 
+
+
         $documentType = DocumentType::findOrFail($id);
         $documents    = Document::where('document_type_id', $id)
             ->latest()
