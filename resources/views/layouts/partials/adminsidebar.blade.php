@@ -53,6 +53,12 @@
                             <span class="pc-mtext">User Management</span>
                         </a>
                     </li>
+                    <li class="pc-item">
+                        <a href="{{ route('documents.import-form') }}" class="pc-link">
+                            <span class="pc-micon"><img src="{{ asset('assets/images/user.png') }}" /></span>
+                            <span class="pc-mtext">Import Documents</span>
+                        </a>
+                    </li>
                 @endif
 
 
