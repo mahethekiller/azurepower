@@ -5596,6 +5596,22 @@ min-height: 350px;
   .slider-next {
     right: 10px;
   }
+  
+  
+  
+  
+#events-and-presentations-tab-pane h2 {margin:0px !important;}  
+
+#events-and-presentations-tab-pane .accordion-button:focus {border:none !important; box-shadow:none !important;}
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
   /* Responsive adjustments */
   @media (max-width: 768px) {
