@@ -24,3 +24,6 @@ yarn-error.log
 /.ftpquota
 /.htaccess
 index.php
+/.user.ini
+/php.ini
+
