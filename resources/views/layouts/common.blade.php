@@ -48,10 +48,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
-        
+
         <link href="{{ asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet">
-        
+
 </head>
 
 <body class="tt-magic-cursor">
@@ -119,7 +119,7 @@
             });
         });
     </script>
-    @if ($pageScript)
+    @if ($pageScript && file_exists(public_path('assets/customjs/' . $pageScript . '.js')))
         <script src="{{ asset('assets/customjs/' . $pageScript . '.js') }}"></script>
     @endif
 

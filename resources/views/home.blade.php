@@ -1,6 +1,9 @@
 <x-common-layout :pageTitle="$pageTitle" :pageDescription="$pageDescription" :pageScript="$pageScript" >
 
 
+
+
+
 <x-addons.hero-section :slides="$slides" />
 
 

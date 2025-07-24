@@ -31,6 +31,7 @@
 
 
     <link rel="stylesheet" href="{{ asset('assets/dashboard/style.css') }}" id="main-style-link">
+     <link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" media="screen">
 
 
 
@@ -52,7 +53,7 @@
         @include('layouts.partials.adminsidebar', ['documentTypes' => \App\Models\DocumentType::all()])
     @elseif(Auth::user()->hasRole('user'))
         @include('layouts.partials.usersidebar')
-    {{-- @elseif(Auth::user()->hasRole('editor'))
+        {{-- @elseif(Auth::user()->hasRole('editor'))
         @include('layouts.partials.editorsidebar') --}}
     @endif
     <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
@@ -182,7 +183,22 @@
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/dashboard/pcoded.js') }}"></script>
     <script src="{{ asset('assets/dashboard/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/js/ckeditor5/ckeditor.js') }}"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.editor').forEach((el) => {
+                ClassicEditor
+                    .create(el)
+                    .then(editor => {
+                        editor.ui.view.editable.element.style.minHeight = '200px';
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
+    </script>
 
     <!-- Bootstrap Select compatible with Bootstrap 5 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta3/js/bootstrap-select.min.js"></script>
@@ -196,6 +212,8 @@
 
     <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <!-- Include a simple WYSIWYG like TinyMCE or CKEditor -->
+
 
     <script>
         var admin_url = "{{ url('admin') }}";

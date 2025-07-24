@@ -51,6 +51,12 @@
                             <span class="pc-mtext">Sliders</span>
                         </a>
                     </li>
+                <li class="pc-item">
+                        <a href="{{ route('admin.team-members.index') }}" class="pc-link">
+                            <span class="pc-micon"><img src="{{ asset('assets/images/user.png') }}" /></span>
+                            <span class="pc-mtext">Team</span>
+                        </a>
+                    </li>
 
 
                 @if (auth()->user()->hasRole('admin'))

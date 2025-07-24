@@ -14,6 +14,7 @@ class Slide extends Model
         'button1_link',
         'button2_text',
         'page',
+        'image_alt',
     ];
 
     public function menu()

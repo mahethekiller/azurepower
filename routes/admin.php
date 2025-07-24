@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\WarrantyManagement;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\SlideController;
+use App\Http\Controllers\Admin\TeamMemberController;
 use App\Http\Controllers\WarrantyController;
 use Illuminate\Support\Facades\Route;
 
@@ -72,6 +73,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('documents', App\Http\Controllers\Admin\DocumentController::class);
     Route::resource('menus', MenuController::class);
     Route::resource('slides', SlideController::class);
+    Route::resource('team-members', TeamMemberController::class);
 
 });
 

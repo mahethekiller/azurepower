@@ -32,6 +32,7 @@ class SlideController extends Controller
             'button2_text'  => 'nullable|string|max:255',
             'button2_link'  => 'nullable|url',
             'page'          => 'nullable|exists:menus,id',
+            'image_alt' => 'nullable|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {
@@ -60,6 +61,7 @@ class SlideController extends Controller
             'button2_text'  => 'nullable|string|max:255',
             'button2_link'  => 'nullable|url',
             'page'          => 'nullable|exists:menus,id',
+            'image_alt' => 'nullable|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {

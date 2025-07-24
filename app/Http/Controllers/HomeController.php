@@ -1,8 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Document;
 use App\Models\Slide;
-use Illuminate\Http\Request;
+use App\Models\TeamMember;
 
 class HomeController extends Controller
 {
@@ -11,73 +12,17 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        $slides=Slide::whereHas('menu', function ($query) {
+            $query->where('route', 'home');
+        })->get();
+
         return view('home',
             [
                 'pageTitle'       => 'Azure Power - Home',
                 'pageDescription' => 'Azure Power - Home',
                 'pageScript'      => "home",
-                'slides'          => [
-                    [
-                        'image'       => 'img/banner.png',
-                        'heading'     => '100% clean energy for your business',
-                        'description' => 'Leading the transition to clean, sustainable power solutions for a greener future',
-                        'buttons'     => [
-                            [
-                                'text' => 'Explore Projects',
-                                'link' => '#',
-                            ],
-                            // [
-                            //     'text' => 'Explore Projects',
-                            //     'link' => '#'
-                            // ]
-                        ],
-                    ],
-                    [
-                        'image'       => 'img/banner.png',
-                        'heading'     => 'Over 4.1 GWs* pan India renewable energy portfolio',
-                        'description' => 'Leading the transition to clean, sustainable power solutions for a greener future',
-                        'buttons'     => [
-                            [
-                                'text' => 'Explore Projects',
-                                'link' => '#',
-                            ],
-                            // [
-                            //     'text' => 'Explore Projects',
-                            //     'link' => '#'
-                            // ]
-                        ],
-                    ],
-                    [
-                        'image'       => 'img/banner.png',
-                        'heading'     => 'India’s first utility scale solar project',
-                        'description' => 'Leading the transition to clean, sustainable power solutions for a greener future',
-                        'buttons'     => [
-                            [
-                                'text' => 'Explore Projects',
-                                'link' => '#',
-                            ],
-                            // [
-                            //     'text' => 'Get Started',
-                            //     'link' => '#'
-                            // ]
-                        ],
-                    ],
-                    [
-                        'image'       => 'img/banner.png',
-                        'heading'     => '300,000+ beneficiaries of social investment',
-                        'description' => 'Leading the transition to clean, sustainable power solutions for a greener future',
-                        'buttons'     => [
-                            [
-                                'text' => 'Explore Projects',
-                                'link' => '#',
-                            ],
-                            // [
-                            //     'text' => 'Get Started',
-                            //     'link' => '#'
-                            // ]
-                        ],
-                    ],
-                ],
+                'slides'          => $slides,
             ]
         );
     }
@@ -93,57 +38,54 @@ class HomeController extends Controller
                 'pageTitle'       => 'Azure Power - About',
                 'pageDescription' => 'Azure Power - About',
                 'pageScript'      => "about",
-                'slides'          => $slides
+                'slides'          => $slides,
+
+            ]
+        );
+    }
+    public function leadership_team()
+    {
+
+        $slides = Slide::whereHas('menu', function ($query) {
+            $query->where('route', 'leadership-team');
+        })->get();
+
+        $bod        = TeamMember::where('team_type', 'Board of Directors')->get();
+        $management = TeamMember::where('team_type', 'Management team')->get();
+
+        return view('frontend.pages.leadership-team',
+            [
+                'pageTitle'       => 'Azure Power - Leadership Team',
+                'pageDescription' => 'Azure Power - Leadership Team',
+                'pageScript'      => "leadership-team",
+                'slides'          => $slides,
+                'bod'             => $bod,
+                'management'      => $management,
 
             ]
         );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function sustainability()
     {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $slides = Slide::whereHas('menu', function ($query) {
+            $query->where('route', 'sustainability');
+        })->get();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        $documents = Document::where('document_type_id', 4) //Press release
+            ->orderBy('doc_date', 'desc')
+            ->get();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        return view('frontend.pages.sustainability',
+            [
+                'pageTitle'       => 'Azure Power - Sustainability',
+                'pageDescription' => 'Azure Power - Sustainability',
+                'pageScript'      => "sustainability",
+                'slides'          => $slides,
+                'documents'      => $documents,
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            ]
+        );
     }
 }
