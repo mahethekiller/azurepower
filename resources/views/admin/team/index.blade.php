@@ -17,6 +17,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Title</th>
+                                <th>Type</th>
                                 <th>Image</th>
                                 <th>Actions</th>
                             </tr>
@@ -27,6 +28,7 @@
                                     <td>{{ $member->id }}</td>
                                     <td>{{ $member->name }}</td>
                                     <td>{{ $member->title }}</td>
+                                    <td>{{ $member->team_type }}</td>
                                     <td>
                                         @if ($member->image)
                                             <img src="{{ asset('storage/' . $member->image) }}" width="50">

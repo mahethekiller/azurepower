@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.btn-team-link').forEach(btn => {
         btn.addEventListener('click', function () {
             const name = this.dataset.name;
-            const designation = this.dataset.designation;
+            const designation = this.dataset.title;
             const image = this.dataset.image;
             const description = this.dataset.description;
             const social = JSON.parse(this.dataset.links || "[]");

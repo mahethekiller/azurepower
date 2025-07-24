@@ -39,14 +39,22 @@
                         <div class="mb-3">
                             <label for="team_type" class="form-label">Team Type</label>
                             <select name="team_type" id="team_type" class="form-select">
+                                @php
+                                    $selectedType = old('team_type') ?? ($teamMember->team_type ?? '');
+                                @endphp
+
+                                <option value="">-- Select Team Type {{ $selectedType }} --</option>
                                 <option value="Board of directors"
-                                    {{ old('team_type', $team->team_type ?? '') == 'Board of directors' ? 'selected' : '' }}>
-                                    Board of directors</option>
+                                    {{ $selectedType === 'Board of directors' ? 'selected' : '' }}>
+                                    Board of directors
+                                </option>
                                 <option value="Management team"
-                                    {{ old('team_type', $team->team_type ?? '') == 'Management team' ? 'selected' : '' }}>
-                                    Management team</option>
+                                    {{ $selectedType === 'Management team' ? 'selected' : '' }}>
+                                    Management team
+                                </option>
                             </select>
                         </div>
+
 
                         <div class="mb-3">
                             <label>Description</label>
