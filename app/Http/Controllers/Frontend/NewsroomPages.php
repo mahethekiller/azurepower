@@ -11,7 +11,10 @@ class NewsroomPages extends Controller
 {
     public function index()
     {
-        $documents = Document::where('document_type_id', 2)  //Press release
+        $press_release = Document::where('document_type_id', 2)  //Press release
+            ->orderBy('doc_date', 'desc')
+            ->get();
+        $sec_fillings = Document::where('document_type_id', 1)  //Press release
             ->orderBy('doc_date', 'desc')
             ->get();
 
@@ -20,7 +23,8 @@ class NewsroomPages extends Controller
             'pageTitle'       => 'Newsroom',
             'pageDescription' => 'Newsroom',
             'pageScript'      => 'newsroom',
-            'documents'      => $documents,
+            'press_release'      => $press_release,
+            'sec_fillings'      => $sec_fillings
         ]);
 
     }
