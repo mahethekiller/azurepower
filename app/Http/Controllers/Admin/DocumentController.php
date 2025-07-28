@@ -62,8 +62,6 @@ class DocumentController extends Controller
                 ->make(true);
         }
 
-
-
         $documentType = DocumentType::findOrFail($id);
         return view('admin.documents.type_documents', [
             'documentType' => $documentType,
@@ -92,9 +90,23 @@ class DocumentController extends Controller
 
         // Handle file upload
         if ($request->hasFile('file')) {
+            // $uploadedFile = $request->file('file');
+            // $fileName     = 'document-file-' . time() . '.' . $uploadedFile->getClientOriginalExtension();
+            // $filePath     = $uploadedFile->storeAs('documents', $fileName, 'public');
+
             $uploadedFile = $request->file('file');
-            $fileName     = 'document-file-' . time() . '.' . $uploadedFile->getClientOriginalExtension();
-            $filePath     = $uploadedFile->storeAs('documents', $fileName, 'public');
+            $fileName     = $uploadedFile->getClientOriginalName(); // original filename
+            $filePath     = 'documents/' . $fileName;
+
+            // Check for duplicate file
+            if (Storage::disk('public')->exists($filePath)) {
+                return back()
+                    ->withErrors(['file' => 'A file with the same name already exists.'])
+                    ->withInput(); // keep input values
+            }
+
+            // Store file
+            $uploadedFile->storeAs('documents', $fileName, 'public');
         }
 
         Document::create([

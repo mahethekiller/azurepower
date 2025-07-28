@@ -1,7 +1,4 @@
-<x-userdashboard-layout
-    :pageTitle="$documentType->name"
-    :pageDescription="(isset($document->id) ? 'Edit' : 'Upload') . ' ' . $documentType->name"
-    :pageScript="''">
+<x-userdashboard-layout :pageTitle="$documentType->name" :pageDescription="(isset($document->id) ? 'Edit' : 'Upload') . ' ' . $documentType->name" :pageScript="''">
 
     <div class="row">
         <div class="col-md-12 col-xl-12">
@@ -14,12 +11,22 @@
                     @endif
 
                     {{-- Form Start --}}
-                    <form action="{{ isset($document->id) ? route('admin.documents.update', $document->id) : route('documents.store') }}"
-                          method="POST"
-                          enctype="multipart/form-data">
+                    <form
+                        action="{{ isset($document->id) ? route('admin.documents.update', $document->id) : route('documents.store') }}"
+                        method="POST" enctype="multipart/form-data">
                         @csrf
                         @if (isset($document->id))
                             @method('PUT')
+                        @endif
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         @endif
 
                         <!-- Hidden Field for Document Type -->
@@ -28,21 +35,14 @@
                         <!-- Title -->
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input
-                                type="text"
-                                name="title"
-                                class="form-control"
-                                value="{{ old('title', $document->title ?? '') }}"
-                                required>
+                            <input type="text" name="title" class="form-control"
+                                value="{{ old('title', $document->title ?? '') }}" required>
                         </div>
 
                         <!-- Document Date -->
                         <div class="form-group">
                             <label for="doc_date">Document Date</label>
-                            <input
-                                type="date"
-                                name="doc_date"
-                                class="form-control"
+                            <input type="date" name="doc_date" class="form-control"
                                 value="{{ old('doc_date', isset($document->doc_date) ? $document->doc_date->format('Y-m-d') : '') }}"
                                 required>
                         </div>
@@ -56,7 +56,8 @@
                             @if (isset($document->file) && $document->file)
                                 <p class="mt-2">
                                     Existing File:
-                                    <a href="{{ asset('storage/' . $document->file) }}" target="_blank" class="btn btn-sm btn-info">
+                                    <a href="{{ asset('storage/' . $document->file) }}" target="_blank"
+                                        class="btn btn-sm btn-info">
                                         View
                                     </a>
                                 </p>
@@ -68,12 +69,8 @@
                         <!-- Link Input -->
                         <div class="form-group">
                             <label for="link">Link</label>
-                            <input
-                                type="url"
-                                name="link"
-                                class="form-control"
-                                value="{{ old('link', $document->link ?? '') }}"
-                                placeholder="Enter Link">
+                            <input type="url" name="link" class="form-control"
+                                value="{{ old('link', $document->link ?? '') }}" placeholder="Enter Link">
                         </div>
 
 
