@@ -28,8 +28,8 @@ class MenuController extends Controller
             'url' => 'nullable|url',
             'parent_id' => 'nullable|exists:menus,id',
             'order' => 'nullable|integer',
-            'show_in_header' => 'nullable|boolean',
         ]);
+        $validated['show_in_header'] = $request->has('show_in_header');
 
         Menu::create($validated);
 
