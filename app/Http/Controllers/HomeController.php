@@ -110,7 +110,7 @@ class HomeController extends Controller
     {
 
         $banners = Banner::whereHas('menu', function ($query) {
-            $query->where('route', 'legal-disclaimer');
+            $query->where('route', 'legalDesclaimer');
         })->get();
 
 
@@ -118,6 +118,96 @@ class HomeController extends Controller
             [
                 'pageTitle'       => 'Azure Power - Legal disclaimer',
                 'pageDescription' => 'Azure Power - Legal disclaimer',
+                // 'pageScript'      => "sustainability",
+                'banners'          => $banners,
+
+            ]
+        );
+    }
+    public function healthSafety()
+    {
+
+        $banners = Banner::whereHas('menu', function ($query) {
+            $query->where('route', 'healthSafety');
+        })->get();
+
+
+        return view('frontend.pages.health-safety',
+            [
+                'pageTitle'       => 'Azure Power - Health & Safety',
+                'pageDescription' => 'Azure Power - Health & Safety',
+                // 'pageScript'      => "sustainability",
+                'banners'          => $banners,
+
+            ]
+        );
+    }
+    public function privacyPolicy()
+    {
+
+        $banners = Banner::whereHas('menu', function ($query) {
+            $query->where('route', 'privacyPolicy');
+        })->get();
+
+
+        return view('frontend.pages.privacy-policy',
+            [
+                'pageTitle'       => 'Azure Power - Health & Safety',
+                'pageDescription' => 'Azure Power - Health & Safety',
+                // 'pageScript'      => "sustainability",
+                'banners'          => $banners,
+
+            ]
+        );
+    }
+    public function socialEnvironment()
+    {
+
+        $banners = Banner::whereHas('menu', function ($query) {
+            $query->where('route', 'socialEnvironment');
+        })->get();
+
+
+        return view('frontend.pages.social-environment',
+            [
+                'pageTitle'       => 'Azure Power - Health & Safety',
+                'pageDescription' => 'Azure Power - Health & Safety',
+                // 'pageScript'      => "sustainability",
+                'banners'          => $banners,
+
+            ]
+        );
+    }
+    public function csr()
+    {
+
+        $banners = Banner::whereHas('menu', function ($query) {
+            $query->where('route', 'csr');
+        })->get();
+
+
+        return view('frontend.pages.csr',
+            [
+                'pageTitle'       => 'Azure Power - Health & Safety',
+                'pageDescription' => 'Azure Power - Health & Safety',
+                // 'pageScript'      => "sustainability",
+                'banners'          => $banners,
+
+            ]
+        );
+    }
+    public function certificate()
+    {
+
+        $banners = Banner::whereHas('menu', function ($query) {
+            $query->where('route', 'certificate');
+        })->get();
+
+
+        return view('frontend.pages.certificate',
+            [
+                'pageTitle'       => 'Azure Power - Health & Safety',
+                'pageDescription' => 'Azure Power - Health & Safety',
                 // 'pageScript'      => "sustainability",
                 'banners'          => $banners,
 

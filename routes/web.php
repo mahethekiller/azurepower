@@ -11,6 +11,13 @@ Route::get('/leadership-team', [HomeController::class, 'leadership_team'])->name
 Route::get('/sustainability', [HomeController::class, 'sustainability'])->name('sustainability');
 Route::get('/contact-us', [HomeController::class, 'contactus'])->name('contactus');
 Route::get('/legal-disclaimer', [HomeController::class, 'legalDesclaimer'])->name('legalDesclaimer');
+Route::get('/certificate', [HomeController::class, 'certificate'])->name('certificate');
+Route::get('/health-safety', [HomeController::class, 'healthSafety'])->name('health-safety');
+Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacyPolicy');
+Route::get('/social-environment', [HomeController::class, 'socialEnvironment'])->name('socialEnvironment');
+Route::get('/corporate-social-responsibility', [HomeController::class, 'csr'])->name('csr');
+Route::get('/certificate', [HomeController::class, 'certificate'])->name('certificate');
+
 
 
 Route::get('/investor', [InvestorPages::class, 'index'])->name('investor');
