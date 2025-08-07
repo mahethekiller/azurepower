@@ -73,7 +73,7 @@ Route::get('admin/document-types/{id}/documents', [DocumentController::class, 't
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('documents', App\Http\Controllers\Admin\DocumentController::class);
     Route::resource('menus', MenuController::class);
-    Route::resource('banners', BannerController::class);
+    Route::resource('banner', BannerController::class);
     Route::resource('team-members', TeamMemberController::class);
 
 });

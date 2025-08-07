@@ -1,4 +1,4 @@
-<x-userdashboard-layout>
+<x-userdashboard-layout :pageTitle="$pageTitle" :pageDescription="$pageDescription">
     <div class="row">
         <div class="col-md-12 col-xl-12">
             <div class="card">
@@ -19,7 +19,7 @@
 
 
                     <form method="POST" enctype="multipart/form-data"
-                        action="{{ isset($banner) ? route('admin.banners.update', $banner) : route('admin.banners.store') }}">
+                        action="{{ isset($banner) ? route('admin.banner.update', $banner) : route('admin.banner.store') }}">
                         @csrf
                         @if (isset($banner))
                             @method('PUT')

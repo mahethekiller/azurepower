@@ -1,10 +1,10 @@
-<x-userdashboard-layout>
+<x-userdashboard-layout :pageTitle="$pageTitle" :pageDescription="$pageDescription" >
   <div class="row">
         <div class="col-md-12 col-xl-12">
             <div class="card">
                 <div class="card-body">
     <h1>Banners</h1>
-    <a href="{{ route('admin.banners.create') }}" class="btn btn-primary mb-3">Add New Banner</a>
+    <a href="{{ route('admin.banner.create') }}" class="btn btn-primary mb-3">Add New Banner</a>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -37,8 +37,8 @@
                         <a href="{{ $banner->button2_link }}" class="btn btn-sm btn-secondary">{{ $banner->button2_text }}</a>
                     </td> --}}
                     <td>
-                        <a href="{{ route('admin.banners.edit', $banner) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="{{ route('admin.banners.destroy', $banner) }}" method="POST" style="display:inline;">
+                        <a href="{{ route('admin.banner.edit', $banner) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{{ route('admin.banner.destroy', $banner) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
