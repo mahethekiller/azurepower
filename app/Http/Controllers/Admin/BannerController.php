@@ -4,21 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
-use App\Models\Slide;
+use App\Models\Banner;
 use Illuminate\Http\Request;
 
-class SlideController extends Controller
+class BannerController extends Controller
 {
     public function index()
     {
-        $slides = Slide::with('menu')->get();
-        return view('admin.slider.index', compact('slides'));
+        $banners = Banner::with('menu')->get();
+        return view('admin.banner.index', compact('banners'));
     }
 
     public function create()
     {
         $pages = Menu::pluck('title', 'id');
-        return view('admin.slider.form', compact('pages'));
+        return view('admin.banner.form', compact('pages'));
     }
 
     public function store(Request $request)
@@ -36,21 +36,21 @@ class SlideController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('slides', 'public');
+            $validated['image'] = $request->file('image')->store('banners', 'public');
         }
 
-        Slide::create($validated);
+        Banner::create($validated);
 
-        return redirect()->route('admin.slides.index')->with('success', 'Slide created successfully.');
+        return redirect()->route('admin.banner.index')->with('success', 'banner created successfully.');
     }
 
-    public function edit(Slide $slide)
+    public function edit(Banner $banner)
     {
         $pages = Menu::pluck('title', 'id');
-        return view('admin.slider.form', compact('slide', 'pages'));
+        return view('admin.banner.form', compact('banner', 'pages'));
     }
 
-    public function update(Request $request, Slide $slide)
+    public function update(Request $request, Banner $banner)
     {
         $validated = $request->validate([
             'image'         => 'nullable|image',
@@ -65,17 +65,17 @@ class SlideController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('slides', 'public');
+            $validated['image'] = $request->file('image')->store('banners', 'public');
         }
 
-        $slide->update($validated);
+        $banner->update($validated);
 
-        return redirect()->route('admin.slides.index')->with('success', 'Slide updated successfully.');
+        return redirect()->route('admin.banners.index')->with('success', 'Banner updated successfully.');
     }
 
-    public function destroy(Slide $slide)
+    public function destroy(Banner $banner)
     {
-        $slide->delete();
-        return redirect()->route('admin.slides.index')->with('success', 'Slide deleted successfully.');
+        $banner->delete();
+        return redirect()->route('admin.banners.index')->with('success', 'Banner deleted successfully.');
     }
 }

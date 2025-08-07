@@ -46,9 +46,9 @@
                 </li>
 
                 <li class="pc-item">
-                        <a href="{{ route('admin.slides.index') }}" class="pc-link">
+                        <a href="{{ route('admin.banners.index') }}" class="pc-link">
                             <span class="pc-micon"><img src="{{ asset('assets/images/user.png') }}" /></span>
-                            <span class="pc-mtext">Sliders</span>
+                            <span class="pc-mtext">Banners</span>
                         </a>
                     </li>
                 <li class="pc-item">

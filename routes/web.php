@@ -9,9 +9,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/leadership-team', [HomeController::class, 'leadership_team'])->name('leadership-team');
 Route::get('/sustainability', [HomeController::class, 'sustainability'])->name('sustainability');
+Route::get('/contact-us', [HomeController::class, 'contactus'])->name('contactus');
+Route::get('/legal-disclaimer', [HomeController::class, 'legalDesclaimer'])->name('legalDesclaimer');
 
 
 Route::get('/investor', [InvestorPages::class, 'index'])->name('investor');
+Route::get('/newsroom', [NewsroomPages::class, 'index'])->name('newsroom');
 Route::get('/newsroom', [NewsroomPages::class, 'index'])->name('newsroom');
 
 

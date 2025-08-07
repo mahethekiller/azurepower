@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Document;
-use App\Models\Slide;
+use App\Models\Banner;
 use App\Models\TeamMember;
 
 class HomeController extends Controller
@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $slides=Slide::whereHas('menu', function ($query) {
+        $banners=Banner::whereHas('menu', function ($query) {
             $query->where('route', 'home');
         })->get();
 
@@ -22,7 +22,7 @@ class HomeController extends Controller
                 'pageTitle'       => 'Azure Power - Home',
                 'pageDescription' => 'Azure Power - Home',
                 'pageScript'      => "home",
-                'slides'          => $slides,
+                'banners'          => $banners,
             ]
         );
     }
@@ -30,7 +30,7 @@ class HomeController extends Controller
     public function about()
     {
 
-        $slides = Slide::whereHas('menu', function ($query) {
+        $banners = Banner::whereHas('menu', function ($query) {
             $query->where('route', 'about');
         })->get();
         return view('frontend.pages.about',
@@ -38,7 +38,7 @@ class HomeController extends Controller
                 'pageTitle'       => 'Azure Power - About',
                 'pageDescription' => 'Azure Power - About',
                 'pageScript'      => "about",
-                'slides'          => $slides,
+                'banners'          => $banners,
 
             ]
         );
@@ -46,7 +46,7 @@ class HomeController extends Controller
     public function leadership_team()
     {
 
-        $slides = Slide::whereHas('menu', function ($query) {
+        $banners = Banner::whereHas('menu', function ($query) {
             $query->where('route', 'leadership-team');
         })->get();
 
@@ -58,7 +58,7 @@ class HomeController extends Controller
                 'pageTitle'       => 'Azure Power - Leadership Team',
                 'pageDescription' => 'Azure Power - Leadership Team',
                 'pageScript'      => "leadership-team",
-                'slides'          => $slides,
+                'banners'          => $banners,
                 'bod'             => $bod,
                 'management'      => $management,
 
@@ -69,7 +69,7 @@ class HomeController extends Controller
     public function sustainability()
     {
 
-        $slides = Slide::whereHas('menu', function ($query) {
+        $banners = Banner::whereHas('menu', function ($query) {
             $query->where('route', 'sustainability');
         })->get();
 
@@ -82,8 +82,44 @@ class HomeController extends Controller
                 'pageTitle'       => 'Azure Power - Sustainability',
                 'pageDescription' => 'Azure Power - Sustainability',
                 'pageScript'      => "sustainability",
-                'slides'          => $slides,
+                'banners'          => $banners,
                 'documents'      => $documents,
+
+            ]
+        );
+    }
+    public function contactus()
+    {
+
+        $banners = Banner::whereHas('menu', function ($query) {
+            $query->where('route', 'contactus');
+        })->get();
+
+
+        return view('frontend.pages.contact-us',
+            [
+                'pageTitle'       => 'Azure Power - Contact us',
+                'pageDescription' => 'Azure Power - Contact us',
+                'pageScript'      => "sustainability",
+                'banners'          => $banners,
+
+            ]
+        );
+    }
+    public function legalDesclaimer()
+    {
+
+        $banners = Banner::whereHas('menu', function ($query) {
+            $query->where('route', 'legal-disclaimer');
+        })->get();
+
+
+        return view('frontend.pages.legal-disclaimer',
+            [
+                'pageTitle'       => 'Azure Power - Legal disclaimer',
+                'pageDescription' => 'Azure Power - Legal disclaimer',
+                // 'pageScript'      => "sustainability",
+                'banners'          => $banners,
 
             ]
         );

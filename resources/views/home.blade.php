@@ -4,7 +4,7 @@
 
 
 
-<x-addons.hero-section :slides="$slides" />
+<x-addons.hero-section :banners="$banners" />
 
 
 

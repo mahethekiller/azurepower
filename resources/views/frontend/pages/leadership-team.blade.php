@@ -2,7 +2,7 @@
 
 
 
-    <x-addons.pageheader :slides="$slides" />
+    <x-addons.pageheader :banners="$banners" />
 
     <!-- Team Page Start -->
     <div class="page-team">

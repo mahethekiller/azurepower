@@ -2,7 +2,7 @@
 
 
 
-	<x-addons.pageheader :slides="$slides" />
+	<x-addons.pageheader :banners="$banners" />
 
 	<!-- About us Section Start -->
 	<div class="about-us about-us-bg">
