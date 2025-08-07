@@ -37,10 +37,10 @@
                                 <div class="footer-links">
                                     <h2>Quick Links</h2>
                                     <ul>
-                                        <li><a href="#">Newsroom</a></li>
+                                        <li><a href="{{ route('newsroom') }}">Newsroom</a></li>
                                         <li><a href="#">Sitemap</a></li>
-                                        <li><a href="#">Legal</a></li>
-                                        <li><a href="#">Privacy</a></li>
+                                        <li><a href="{{ route('legalDesclaimer') }}">Legal</a></li>
+                                        <li><a href="{{ route('privacyPolicy') }}">Privacy</a></li>
 
                                     </ul>
                                 </div>
@@ -53,7 +53,7 @@
                                     <h2>Quick Links</h2>
                                     <ul>
                                         <li><a href="#">Employee Login</a></li>
-                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="{{ route('contactus') }}">Contact Us</a></li>
                                         <li><a href="#">Grievance</a></li>
                                     </ul>
                                 </div>

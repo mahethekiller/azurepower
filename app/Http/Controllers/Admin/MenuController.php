@@ -10,8 +10,8 @@ class MenuController extends Controller
 {
     public function index()
     {
-        $menus = Menu::whereNull('parent_id')->with('children')->orderBy('order')->get();
-        return view('admin.menus.index', compact('menus'));
+        $menuss = Menu::whereNull('parent_id')->with('children')->orderBy('order')->latest()->get();
+        return view('admin.menus.index', compact('menuss'));
     }
 
     public function create()
@@ -28,6 +28,7 @@ class MenuController extends Controller
             'url' => 'nullable|url',
             'parent_id' => 'nullable|exists:menus,id',
             'order' => 'nullable|integer',
+            'show_in_header' => 'nullable|boolean',
         ]);
 
         Menu::create($validated);
@@ -51,6 +52,7 @@ class MenuController extends Controller
             'parent_id' => 'nullable|exists:menus,id',
             'order' => 'nullable|integer',
         ]);
+        $validated['show_in_header'] = $request->has('show_in_header');
 
         $menu->update($validated);
 

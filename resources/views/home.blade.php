@@ -97,92 +97,153 @@
 			</div>
 		</div>
 
-		<div class="container-fluid">
+		<div class="container-fluid" style="position: relative;">
+			<div class="slider-bg-left"></div>
 			<div class="row no-gap">
 				<div class="col-md-12">
-					<!-- Project Layout 3 Slider Start -->
-					<div class="project-layout3-slider">
-						<div class="swiper">
-							<div class="swiper-wrapper">
-								<!-- Project Slide Start -->
-								<div class="swiper-slide">
-									<div class="project-slide3">
-										<div class="project-image">
-											<figure class="image-anime">
-												<img src="{{ asset('assets/img/Punjab-4-2.jpg') }}" alt="">
-											</figure>
-										</div>
+					<div class="owl-carousel owl-theme">
+						<div class="item">
+							<a href="#">
+								<div class="proj-hm-pg">
+									<div class="proj-hm-pg-image">
+										<figure class="image-anime">
+											<img src="{{ asset('assets/img/Punjab-4-2.jpg') }}" alt="">
+										</figure>
+									</div>
 
-										<div class="project-content">
-											<h3>Punjab 4</h3>
-											<p><i class="fa-solid fa-location-dot"></i> Project Location : (Dist: Fazilka, Muktasar, Bhathinda), Punjab<br>
-											<i class="fa-solid fa-expand"></i> Project Size : 150 MW</p>
-										</div>
+									<div class="proj-hm-pg-content">
+										<h3>Punjab 4</h3>
+										<p><i class="fa-solid fa-location-dot"></i> Project Location : (Dist: Fazilka,
+											Muktasar, Bhathinda), Punjab<br>
+											<i class="fa-solid fa-expand"></i> Project Size : 150 MW
+										</p>
 									</div>
 								</div>
-								<!-- Project Slide End -->
+							</a>
+						</div>
+						<div class="item">
+							<a href="#">
+								<div class="proj-hm-pg">
+									<div class="proj-hm-pg-image">
+										<figure class="image-anime">
+											<img src="{{ asset('assets/img/Andhra-Pradesh-2.jpg') }}" alt="">
+										</figure>
+									</div>
 
-								<!-- Project Slide Start -->
-								<div class="swiper-slide">
-									<div class="project-slide3">
-										<div class="project-image">
-											<figure class="image-anime">
-												<img src="{{ asset('assets/img/Andhra-Pradesh-2.jpg') }}" alt="">
-											</figure>
-										</div>
-
-										<div class="project-content">
-											<h3>Andhra Pradesh 2</h3>
-											<p><i class="fa-solid fa-location-dot"></i> Project Location : Kurnool, Andhra Pradesh<br>
-											<i class="fa-solid fa-expand"></i> Project Size : 100 MW</p>
-										</div>
+									<div class="proj-hm-pg-content">
+										<h3>Andhra Pradesh 2</h3>
+										<p><i class="fa-solid fa-location-dot"></i> Project Location : Kurnool, Andhra
+											Pradesh<br>
+											<i class="fa-solid fa-expand"></i> Project Size : 100 MW
+										</p>
 									</div>
 								</div>
-								<!-- Project Slide End -->
+							</a>
+						</div>
+						<div class="item">
+							<a href="#">
+								<div class="proj-hm-pg">
+									<div class="proj-hm-pg-image">
+										<figure class="image-anime">
+											<img src="{{ asset('assets/img/Telangana-1.jpg') }}" alt="">
+										</figure>
+									</div>
 
-								<!-- Project Slide Start -->
-								<div class="swiper-slide">
-									<div class="project-slide3">
-										<div class="project-image">
-											<figure class="image-anime">
-												<img src="{{ asset('assets/img/Telangana-1.jpg') }}" alt="">
-											</figure>
-										</div>
-
-										<div class="project-content">
-											<h3>Telangana 1</h3>
-											<p><i class="fa-solid fa-location-dot"></i> Project Location : (Dist: Rachur, Jillella, Marchala, Rachallapalli, Veljala), Telangana<br>
-											<i class="fa-solid fa-expand"></i> Project Size : 100 MW</p>
-										</div>
+									<div class="proj-hm-pg-content">
+										<h3>Telangana 1</h3>
+										<p><i class="fa-solid fa-location-dot"></i> Project Location : (Dist: Rachur,
+											Jillella, Marchala, Rachallapalli, Veljala), Telangana<br>
+											<i class="fa-solid fa-expand"></i> Project Size : 100 MW
+										</p>
 									</div>
 								</div>
-								<!-- Project Slide End -->
+							</a>
+						</div>
+						<div class="item">
+							<a href="#">
+								<div class="proj-hm-pg">
+									<div class="proj-hm-pg-image">
+										<figure class="image-anime">
+											<img src="{{ asset('assets/img/Gujarat-2.jpg') }}" alt="">
+										</figure>
+									</div>
 
-								<!-- Project Slide Start -->
-								<div class="swiper-slide">
-									<div class="project-slide3">
-										<div class="project-image">
-											<figure class="image-anime">
-												<img src="{{ asset('assets/img/Gujarat-2.jpg') }}" alt="">
-											</figure>
-										</div>
-
-										<div class="project-content">
-											<h3>Gujarat 2</h3>
-											<p><i class="fa-solid fa-location-dot"></i> Project Location : (Dist: Sanes, Chiddra, Vadol, Malooj, Netramali, Vartol, Semaliya), Gujarat<br>
-											<i class="fa-solid fa-expand"></i> Project Size : 260 MW</p>
-										</div>
+									<div class="proj-hm-pg-content">
+										<h3>Gujarat 2</h3>
+										<p><i class="fa-solid fa-location-dot"></i> Project Location : (Dist: Sanes,
+											Chiddra, Vadol, Malooj, Netramali, Vartol, Semaliya), Gujarat<br>
+											<i class="fa-solid fa-expand"></i> Project Size : 260 MW
+										</p>
 									</div>
 								</div>
-								<!-- Project Slide End -->
-							</div>
-							<div class="container text-center mt-5"><a href="#" class="btn-default align-items-center text-center">View Solar Power Projects</a></div>
-							<div class="swiper-pagination"></div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="#">
+								<div class="proj-hm-pg">
+									<div class="proj-hm-pg-image">
+										<figure class="image-anime">
+											<img src="{{ asset('assets/img/Rajasthan-3-1.jpg') }}" alt="">
+										</figure>
+									</div>
+
+									<div class="proj-hm-pg-content">
+										<h3>Rajasthan 3</h3>
+										<p><i class="fa-solid fa-location-dot"></i> Project Location : Jodhpur,
+											Rajasthan<br>
+											<i class="fa-solid fa-expand"></i> Project Size : 100 MW
+										</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="#">
+								<div class="proj-hm-pg">
+									<div class="proj-hm-pg-image">
+										<figure class="image-anime">
+											<img src="{{ asset('assets/img/Karnataka-3.jpg') }}" alt="">
+										</figure>
+									</div>
+
+									<div class="proj-hm-pg-content">
+										<h3>Karnataka 3</h3>
+										<p><i class="fa-solid fa-location-dot"></i> Project Location : Chitradurga,
+											Karnataka<br>
+											<i class="fa-solid fa-expand"></i> Project Size : 130 MW
+										</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="#">
+								<div class="proj-hm-pg">
+									<div class="proj-hm-pg-image">
+										<figure class="image-anime">
+											<img src="{{ asset('assets/img/Maharashtra-3.jpg') }}" alt="">
+										</figure>
+									</div>
+
+									<div class="proj-hm-pg-content">
+										<h3>Maharashtra 3</h3>
+										<p><i class="fa-solid fa-location-dot"></i> Project Location : Bhadla,
+											Rajasthan<br>
+											<i class="fa-solid fa-expand"></i> Project Size : 130 MW
+										</p>
+									</div>
+								</div>
+							</a>
 						</div>
 					</div>
-					<!-- Project Layout 3 Slider End -->
 				</div>
 			</div>
+
+
+			<div class="container text-center mt-5"><a href="#" class="btn-default align-items-center text-center">View
+					Solar Power Projects</a></div>
+
+			<div class="slider-bg-right"></div>
 		</div>
 	</div>
 	<!-- Latest Project Layout 3 End -->

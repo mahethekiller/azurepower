@@ -24,8 +24,14 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         view()->composer('*', function ($view) {
-            $menus = Menu::whereNull('parent_id')->orderBy('order')->with('children')->get();
+            $menus = Menu::where('show_in_header', true)
+            ->whereNull('parent_id')
+                ->orderBy('order')
+                ->with('children')
+                ->get();
+
             $view->with('menus', $menus);
         });
+
     }
 }

@@ -137,7 +137,7 @@
                                                         <ul>
                                                             <li>
                                                                 <div class="contact-icon">
-                                                                    <img src="img/location.png">
+                                                                    <img src="{{ asset('assets/img/location.png') }}">
                                                                 </div>
                                                                 <div class="contact-text">
                                                                     <h5 class="contact-title"
@@ -149,7 +149,7 @@
 
                                                             <li>
                                                                 <div class="contact-icon">
-                                                                    <img src="img/sms.png">
+                                                                    <img src="{{ asset('assets/img/sms.png') }}">
                                                                 </div>
                                                                 <div class="contact-text">
                                                                     <h5>
@@ -160,7 +160,7 @@
                                                             </li>
                                                             <li>
                                                                 <div class="contact-icon">
-                                                                    <img src="img/call.png">
+                                                                    <img src="{{ asset('assets/img/call.png') }}">
                                                                 </div>
                                                                 <div class="contact-text">
                                                                     <h5 class="contact-title"> <a

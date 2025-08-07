@@ -128,7 +128,7 @@ class HomeController extends Controller
     {
 
         $banners = Banner::whereHas('menu', function ($query) {
-            $query->where('route', 'healthSafety');
+            $query->where('route', 'health-safety');
         })->get();
 
 
@@ -136,7 +136,7 @@ class HomeController extends Controller
             [
                 'pageTitle'       => 'Azure Power - Health & Safety',
                 'pageDescription' => 'Azure Power - Health & Safety',
-                // 'pageScript'      => "sustainability",
+                'pageScript'      => "healthsafety",
                 'banners'          => $banners,
 
             ]
@@ -172,7 +172,7 @@ class HomeController extends Controller
             [
                 'pageTitle'       => 'Azure Power - Health & Safety',
                 'pageDescription' => 'Azure Power - Health & Safety',
-                // 'pageScript'      => "sustainability",
+                'pageScript'      => "socialenvironment",
                 'banners'          => $banners,
 
             ]
@@ -190,7 +190,7 @@ class HomeController extends Controller
             [
                 'pageTitle'       => 'Azure Power - Health & Safety',
                 'pageDescription' => 'Azure Power - Health & Safety',
-                // 'pageScript'      => "sustainability",
+                'pageScript'      => "csr",
                 'banners'          => $banners,
 
             ]

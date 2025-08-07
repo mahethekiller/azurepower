@@ -10,7 +10,7 @@ class BannerController extends Controller
 {
     public function index()
     {
-        $banners = Banner::with('menu')->get();
+        $banners = Banner::with('menu')->latest()->get();
         return view('admin.banner.index', [
             'banners'         => $banners,
             'pageTitle'       => 'Banners',

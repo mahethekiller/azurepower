@@ -15,17 +15,20 @@
                     <th>Route</th>
                     <th>URL</th>
                     <th>Order</th>
+                    <th>Show In Header</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($menus as $menu)
+                @foreach($menuss as $menu)
                     <tr>
                         <td>{{ $menu->title }}</td>
                         <td>—</td>
                         <td>{{ $menu->route }}</td>
                         <td>{{ $menu->url }}</td>
                         <td>{{ $menu->order }}</td>
+                        <td>{{ $menu->show_in_header ? 'Yes' : 'No' }}</td>
+
                         <td>
                             <a href="{{ route('admin.menus.edit', $menu->id) }}" class="btn btn-sm btn-warning">Edit</a>
                             <form action="{{ route('admin.menus.destroy', $menu->id) }}" method="POST" style="display:inline;">
@@ -42,6 +45,8 @@
                             <td>{{ $child->route }}</td>
                             <td>{{ $child->url }}</td>
                             <td>{{ $child->order }}</td>
+                            <td>{{ $menu->show_in_header ? 'Yes' : 'No' }}</td>
+
                             <td>
                                 <a href="{{ route('admin.menus.edit', $child->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                 <form action="{{ route('admin.menus.destroy', $child->id) }}" method="POST" style="display:inline;">
