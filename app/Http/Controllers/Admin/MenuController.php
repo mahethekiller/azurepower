@@ -25,7 +25,7 @@ class MenuController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'route' => 'nullable|string',
-            'url' => 'nullable|url',
+            'url' => 'nullable|string',
             'parent_id' => 'nullable|exists:menus,id',
             'order' => 'nullable|integer',
         ]);

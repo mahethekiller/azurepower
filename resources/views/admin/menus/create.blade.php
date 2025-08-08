@@ -2,6 +2,17 @@
 
     <div class="container">
         <h2>{{ isset($menu) ? 'Edit Menu' : 'Add Menu' }}</h2>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form action="{{ isset($menu) ? route('admin.menus.update', $menu->id) : route('admin.menus.store') }}"
             method="POST">
             @csrf
@@ -45,9 +56,10 @@
             </div>
             <div class="form-check mb-3">
                 <input type="checkbox" class="form-check-input" name="show_in_header" id="show_in_header"
-                    @checked(old('show_in_header', $menu->show_in_header ?? true))>
+                    @checked(old('show_in_header', isset($menu) ? $menu->show_in_header : true))>
                 <label class="form-check-label" for="show_in_header">Show in Header Menu</label>
             </div>
+
 
 
 
