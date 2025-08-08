@@ -90,7 +90,7 @@
 					<!-- Section Title Start -->
 					<div class="section-title text-center">
 						<h3 class="wow fadeInUp">Featured Projects</h3>
-						<h2 class="text-anime">Our goal is to ensure solar <br>energy accessibility</h2>
+						<h2 class="text-anime">We Complete 100+ Project Yearly Successfully</h2>
 					</div>
 					<!-- Section Title End -->
 				</div>
@@ -344,23 +344,23 @@
 
 
 
-<!-- Why Choose us Section Start -->
+<!-- 
 	<div class="why-choose-us">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<!-- Section Title Start -->
+				
 					<div class="section-title">
 						<h3 class="wow fadeInUp">WHY CHOOSE US</h3>
 						<h2 class="text-anime">Providing solar energy solutions</h2>
 					</div>
-					<!-- Section Title End -->
+				
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-lg-3 col-md-6">
-					<!-- Why Choose Item Start -->
+				
 					<div class="why-choose-item wow fadeInUp text-center" data-wow-delay="0.25s">
 						<div class="why-choose-image">
 							<img src="{{ asset('assets/img/banner.png') }}" alt="">
@@ -375,11 +375,11 @@
 							<p>Smart tech meets engineering to maximize energy.</p>
 						</div>
 					</div>
-					<!-- Why Choose Item End -->
+				
 				</div>
 
 				<div class="col-lg-3 col-md-6">
-					<!-- Why Choose Item Start -->
+				
 					<div class="why-choose-item wow fadeInUp text-center" data-wow-delay="0.5s">
 						<div class="why-choose-image">
 							<img src="{{ asset('assets/img/banner.png') }}" alt="">
@@ -394,11 +394,11 @@
 							<p>Built on trust, supported by industry leading warranties.</p>
 						</div>
 					</div>
-					<!-- Why Choose Item End -->
+				
 				</div>
 
 				<div class="col-lg-3 col-md-6">
-					<!-- Why Choose Item Start -->
+				
 					<div class="why-choose-item wow fadeInUp text-center" data-wow-delay="0.75s">
 						<div class="why-choose-image">
 							<img src="{{ asset('assets/img/banner.png') }}" alt="">
@@ -413,11 +413,11 @@
 							<p>Quality-driven execution for long term performance.</p>
 						</div>
 					</div>
-					<!-- Why Choose Item End -->
+				
 				</div>
 
 				<div class="col-lg-3 col-md-6">
-					<!-- Why Choose Item Start -->
+				
 					<div class="why-choose-item wow fadeInUp text-center" data-wow-delay="1.0s">
 						<div class="why-choose-image">
 							<img src="{{ asset('assets/img/banner.png') }}" alt="">
@@ -432,31 +432,31 @@
 							<p>Constant support to keep your power flowing.</p>
 						</div>
 					</div>
-					<!-- Why Choose Item End -->
+					
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Why Choose us Section End -->
+ -->
 
 
-	<!-- Our Process Section Start -->
+	<!-- 
 	    <div class="our-process">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <!-- Section Title Start -->
+              
                     <div class="section-title">
                         <h3 class="wow fadeInUp">Our process</h3>
                         <h2 class="text-anime">Our Work Process</h2>
                     </div>
-                    <!-- Section Title End -->
+                    
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-4">
-                    <!-- Step Item Start -->
+                    
                     <div class="step-item step-1 wow fadeInUp" data-wow-delay="0.25s">
                         <div class="step-header">
                             <div class="step-icon">
@@ -472,11 +472,11 @@
                             <p>Smart, scalable planning for every stage of your energy project.</p>
                         </div>
                     </div>
-                    <!-- Step Item End -->
+                    
                 </div>
 
                 <div class="col-md-4">
-                    <!-- Step Item Start -->
+                    
                     <div class="step-item step-2 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="step-header">
                             <div class="step-icon">
@@ -492,11 +492,11 @@
                             <p>Data-driven insights to guide smarter energy decisions.</p>
                         </div>
                     </div>
-                    <!-- Step Item End -->
+                    
                 </div>
 
                 <div class="col-md-4">
-                    <!-- Step Item Start -->
+                   
                     <div class="step-item wow fadeInUp" data-wow-delay="0.75s">
                         <div class="step-header">
                             <div class="step-icon">
@@ -512,12 +512,12 @@
                             <p>Expertly installed solar solutions, ready to power your future.</p>
                         </div>
                     </div>
-                    <!-- Step Item End -->
+                    
                 </div>
             </div>
         </div>
     </div>
-	<!-- Our Process Section End -->
+ -->
 
 
 	<!-- Intro Video Section Start -->
@@ -546,27 +546,27 @@
 
 
 
-	<!-- Our Services Section Start -->
+	<!-- 
 	<div class="our-services">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<!-- Section Title Start -->
+				
 					<div class="section-title">
 						<h3 class="wow fadeInUp">Meet Professionals</h3>
 						<h2 class="text-anime">Board of Directors</h2>
 					</div>
-					<!-- Section Title End -->
+				
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-12">
-					<!-- Services Slider Start -->
+					
 					<div class="services-slider">
 						<div class="swiper">
 							<div class="swiper-wrapper">
-								<!-- Service Slide Start -->
+							
 								<div class="swiper-slide">
 									<a href="#"><div class="service-item">
 										<div class="service-image">
@@ -581,9 +581,9 @@
 										</div>
 									</div></a>
 								</div>
-								<!-- Service Slide End -->
+							
 
-								<!-- Service Slide Start -->
+								
 								<div class="swiper-slide">
 									<a href="#"><div class="service-item">
 										<div class="service-image">
@@ -598,9 +598,9 @@
 										</div>
 									</div></a>
 								</div>
-								<!-- Service Slide End -->
+								
 
-								<!-- Service Slide Start -->
+							
 								<div class="swiper-slide">
 									<a href="#">
 									<div class="service-item">
@@ -616,9 +616,7 @@
 									</div>
 									</a>
 								</div>
-								<!-- Service Slide End -->
-
-								<!-- Service Slide Start -->
+								
 								<div class="swiper-slide">
 									<a href="#"><div class="service-item">
 										<div class="service-image">
@@ -633,18 +631,18 @@
 										</div>
 									</div></a>
 								</div>
-								<!-- Service Slide End -->
+								
 							</div>
 
 							<div class="swiper-pagination"></div>
 						</div>
 					</div>
-					<!-- Services Slider End -->
+					
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Our Services Section End -->
+	-->
 
 
 <!-- Latest News Section Start -->
@@ -654,8 +652,8 @@
 				<div class="col-md-12">
 					<!-- Section Title Start -->
 					<div class="section-title">
-						<h3 class="wow fadeInUp">Our Blog</h3>
-						<h2 class="text-anime">Latest News</h2>
+						<h3 class="wow fadeInUp">Latest</h3>
+						<h2 class="text-anime">Newsroom</h2>
 					</div>
 					<!-- Section Title End -->
 				</div>
@@ -737,7 +735,7 @@
 					<!-- Blog Item End -->
 				</div>
 			</div>
-			<div class="container text-center mt-5"><a href="#" class="btn-default align-items-center text-center">Explore Projects</a></div>
+			<div class="container text-center mt-5"><a href="http://azurepower.ocpwebserver.com/newsroom" class="btn-default align-items-center text-center">Explore</a></div>
 		</div>
 	</div>
 	<!-- Latest News Section End -->
