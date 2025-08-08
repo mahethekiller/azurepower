@@ -97,6 +97,15 @@
     <script src="{{ asset('assets/js/function.js') }}"></script>
     <script src="{{ asset('assets/js/owl.carousel.js') }}"></script>
 
+    <script>
+        var homeurl = "{{ url('/') }}";
+        var assetsurl="{{ asset('/assets') }}";
+    </script>
+
+    @if (request()->is('/'))
+       <script src="https://d3js.org/d3.v7.min.js"></script>
+    @endif
+
 
     @if ($pageScript && file_exists(public_path('assets/customjs/' . $pageScript . '.js')))
         <script src="{{ asset('assets/customjs/' . $pageScript . '.js') }}"></script>
