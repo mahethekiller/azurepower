@@ -19,7 +19,7 @@ Route::get('/certificate', [HomeController::class, 'certificate'])->name('certif
 
 
 
-Route::get('/investor', [InvestorPages::class, 'index'])->name('investor');
+Route::get('/financial-information', [InvestorPages::class, 'index'])->name('financial-information');
 Route::get('/newsroom', [NewsroomPages::class, 'index'])->name('newsroom');
 Route::get('/newsroom', [NewsroomPages::class, 'index'])->name('newsroom');
 
