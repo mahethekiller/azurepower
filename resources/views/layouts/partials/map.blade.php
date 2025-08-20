@@ -210,14 +210,6 @@
         box-shadow: 0 6px 18px rgba(127, 194, 65, 0.18)
     }
 
-    footer {
-        margin-top: 40px;
-        background: #29499a;
-        color: #fff;
-        padding: 26px 40px;
-        text-align: center;
-        border-radius: 8px
-    }
 
     /* responsive */
     @media (max-width:980px) {
@@ -236,7 +228,7 @@
     }
 </style>
 <!-- SVG Map -->
-<div class="col-lg-8">
+<div class="col-lg-6">
     <div class="w-full lg:w-1/2 flex justify-center items-center p-4">
     <div class="map-container">
       <!-- Map Image -->
@@ -284,10 +276,8 @@
   </div>
 </div>
 
-<div class="col-lg-4">
+<div class="col-lg-6">
    <div class="w-full lg:w-1/2 flex flex-col space-y-6">
-
-    <div class="kicker">Portfolio</div>
     <h1>Over 4.1 GWs* Portfolio is <br>spread across India</h1>
 
 
@@ -421,7 +411,7 @@
 
 
     <div class="cta">
-      <button class="btn" onclick="window.location.href='#contact'">View Projects</button>
+      <button class="btn-default align-items-center text-center" href="#">View Projects</button>
     </div>
   </div>
 </div>

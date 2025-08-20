@@ -42,17 +42,15 @@
                     <!-- Section Title Start -->
                     <div class="section-title">
                         <h3 class="wow fadeInUp">What We Do</h3>
-                        <h2 class="text-anime">Our goal is to ensure solar energy accessibility</h2>
+                        <h2 class="text-anime">We are one of the Top Renewable energy and sustainable development company in India</h2>
                     </div>
                     <!-- Section Title End -->
 
                     <!-- About us Content Start -->
                     <div class="about-content wow fadeInUp" data-wow-delay="0.25s">
-                        <strong>We are one of the Top Solar energy and sustainable development company in India</strong>
-
-                        <p>We build and operate some of the largest grid-scale Solar power projects in the country, and
-                            supply the generated renewable power to government utilities, and independent industrial &
-                            commercial customers on long term fixed price contracts.</p>
+                       
+                        <p>We build and operate some of the largest grid-scale renewable  power projects in the country, and supply the generated renewable power to government utilities, and independent industrial & commercial customers on long term fixed price contracts. The prices in many cases are at or below prevailing alternatives for these customers. We are committed to leading India’s energy transition by delivering sustainable energy solutions and supporting the nation’s journey toward net-zero emissions.
+</p>
 
                         <div class="content-box-rgt-section">
                             <div class="info-box">
@@ -63,17 +61,16 @@
                                 <i class="icon flaticon-wind-turbine"></i>
                                 <img class="icon" src="{{ asset('assets/img/utility-icon.png') }}" />
                                 <h5 class="title">Utility</h5>
-                                <div class="text">We build and operate large grid-scale solar, wind, and hybrid
-                                    projects across India...</div>
+                                <div class="text">We build and operate large grid-scale solar, wind, and hybrid projects across India which supplies renewable energy to government utilities, both at state and centre.</div>
                             </div>
 
-                            <div class="about-block">
+                           <!-- <div class="about-block">
                                 <i class="icon flaticon-save"></i>
                                 <img class="icon" src="{{ asset('assets/img/energy-transition-icon.png') }}" />
                                 <h5 class="title">Energy Transition</h5>
                                 <div class="text">Azure Power Energy Transition Services, a B2B arm of Azure Power,
                                     helps commercial...</div>
-                            </div>
+                            </div>-->
 
                         </div>
                     </div>
@@ -95,7 +92,8 @@
                     <!-- Section Title Start -->
                     <div class="section-title text-center">
                         <h3 class="wow fadeInUp">Featured Projects</h3>
-                        <h2 class="text-anime">We Complete 100+ Project Yearly Successfully</h2>
+                        <h2 class="text-anime mb-4">We Complete 100+ Project Yearly Successfully</h2>
+                        <p>Our Projects are designed to provide clean, reliable, and affordable electricity to customers and communities.</p>
                     </div>
                     <!-- Section Title End -->
                 </div>
@@ -818,7 +816,7 @@
                             <div class="col-lg-4 calculator-box wow fadeInUp">
                                 <!-- Solar Form Start -->
                                 <div class="section-title">
-                                    <h4>Request A Quote</h4>
+                                    <h4>Contact Us</h4>
                                 </div>
                                 <div class="solar-form">
                                     <form id="solarForm" action="#" method="POST" data-toggle="validator">

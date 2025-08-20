@@ -32,10 +32,11 @@
 					<!-- Topbar Social Links Start -->
 					<div class="header-social-links">
 						<ul>
-							<li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-							<li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-							<li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+							<li><a href="https://x.com/AzurePowerSolar" taregt="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+							<li><a href="https://www.linkedin.com/company/azure-power/" taregt="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+							<li><a href="https://www.youtube.com/@azurepower4227" taregt="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+								<li><a href="https://www.instagram.com/azurepowersolar/" taregt="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+							<li><a href="https://www.facebook.com/azurepowersolar" taregt="_blank"><i class="fa-brands fa-facebook"></i></a></li>
 						</ul>
 					</div>
 					<!-- Topbar Social Links End -->

@@ -15,8 +15,7 @@
                                         <img width="200px" src="{{ asset('assets/img/logo.png') }}"  alt="">
                                     </figure>
                                     <p class="oragne">4.1 GWs renewable energy assets</p>
-                                    <p>Azure Power has a renewable energy assets base of over 3 GWs of operational
-                                        capacity and ~1.1 GWs** of contracted & awarded capacity.</p>
+                                    <p>Over 4.1 GWs* pan India portfolio of renewable energy assets Azure Power has a renewable energy assets base of over 3 GWs of operational capacity and ~1.1 GWs** of contracted & awarded capacity.</p>
                                 </div>
                                 <!-- Footer About End -->
 
