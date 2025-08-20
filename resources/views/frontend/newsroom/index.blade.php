@@ -43,19 +43,49 @@
                             aria-controls="events-and-presentations-tab-pane" aria-selected="true">Press Release
                         </button>
                     </li>
-                    <li class="nav-item" role="presentation">
+                    {{-- <li class="nav-item" role="presentation">
                         <button class="nav-link" id="press-releases-announcements-tab" data-bs-toggle="tab"
                             data-bs-target="#press-releases-announcements-tab-pane" type="button" role="tab"
                             aria-controls="press-releases-announcements-tab-pane" aria-selected="false">Shareholder
                             Meetings</button>
+                    </li> --}}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="news-tab" data-bs-toggle="tab"
+                            data-bs-target="#news-tab-pane" type="button" role="tab"
+                            aria-controls="news-tab-pane" aria-selected="false">News</button>
+                    </li>
+                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="mediacoverage-tab" data-bs-toggle="tab"
+                            data-bs-target="#mediacoverage-tab-pane" type="button" role="tab"
+                            aria-controls="mediacoverage-tab-pane" aria-selected="false">Media Coverage</button>
+                    </li>
+                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="mediakit-tab" data-bs-toggle="tab"
+                            data-bs-target="#mediakit-tab-pane" type="button" role="tab"
+                            aria-controls="mediakit-tab-pane" aria-selected="false">Media Kit</button>
+                    </li>
+                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="awards-tab" data-bs-toggle="tab"
+                            data-bs-target="#awards-tab-pane" type="button" role="tab"
+                            aria-controls="awards-tab-pane" aria-selected="false">Awards</button>
+                    </li>
+                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="shareholder" data-bs-toggle="tab"
+                            data-bs-target="#shareholder-tab-pane" type="button" role="tab"
+                            aria-controls="shareholder-tab-pane" aria-selected="false">Shareholder Meetings</button>
                     </li>
                 </ul>
                 <div class="container">
                     <div class="tab-content accordion" id="myTabContent">
 
                         @include('frontend.newsroom.partials.press-release')
+                        @include('frontend.newsroom.partials.news')
+                        @include('frontend.newsroom.partials.media-coverage')
+                        @include('frontend.newsroom.partials.media-kit')
+                        @include('frontend.newsroom.partials.awards')
+                        @include('frontend.newsroom.partials.shareholder-meeting')
 
-                        @include('frontend.newsroom.partials.shareholder')
+                        {{-- @include('frontend.newsroom.partials.shareholder') --}}
 
 
                     </div>
