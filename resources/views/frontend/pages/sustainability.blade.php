@@ -259,9 +259,9 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <!-- Section Title Start -->
-                    <div class="text-center">
+                    <div class="text-center" id="ourpolicies">
                         <h2 class="wow fadeInUp">Certification</h2>
-                        <h3 class="text-anime">Our Policies & Certification</h3>
+                        <h3  class="text-anime">Our Policies & Certification</h3>
                     </div>
                     <!-- Section Title End -->
 
