@@ -155,7 +155,7 @@
                 <div class="col-lg-3">
                     <div class="service-item wow fadeInUp" data-wow-delay="0.5s"
                         style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                        <a href="#" class="service-box-link"></a>
+                        <a href="{{ route('csr') }}" class="service-box-link"></a>
 
                         <div class="service-image">
                             <figure>
@@ -178,7 +178,7 @@
                 <div class="col-lg-3">
                     <div class="service-item wow fadeInUp" data-wow-delay="0.5s"
                         style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                        <a href="#" class="service-box-link"></a>
+                        <a href="{{ route('health-safety') }}" class="service-box-link"></a>
 
                         <div class="service-image">
                             <figure>
@@ -203,7 +203,7 @@
                 <div class="col-lg-3">
                     <div class="service-item wow fadeInUp" data-wow-delay="0.5s"
                         style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                        <a href="#" class="service-box-link"></a>
+                        <a href="{{ route('socialEnvironment') }}" class="service-box-link"></a>
 
                         <div class="service-image">
                             <figure>
@@ -227,7 +227,7 @@
                 <div class="col-lg-3">
                     <div class="service-item wow fadeInUp" data-wow-delay="0.5s"
                         style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                        <a href="#" class="service-box-link"></a>
+                        <a href="{{ route('corporate-governance') }}" class="service-box-link"></a>
 
                         <div class="service-image">
                             <figure>

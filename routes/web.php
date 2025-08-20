@@ -21,6 +21,7 @@ Route::get('/iso-accreditations', [HomeController::class, 'iso_accreditations'])
 
 
 Route::get('/financial-information', [InvestorPages::class, 'index'])->name('financial-information');
+Route::get('/corporate-governance', [InvestorPages::class, 'corporate_governance'])->name('corporate-governance');
 Route::get('/newsroom', [NewsroomPages::class, 'index'])->name('newsroom');
 Route::get('/newsroom', [NewsroomPages::class, 'index'])->name('newsroom');
 

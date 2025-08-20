@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use App\Models\Document;
 use App\Models\Event;
 
@@ -26,8 +27,30 @@ class InvestorPages extends Controller
             'pageScript'      => 'investor',
             'pastEvents'      => $pastEvents,
             'upcomingEvents'  => $upcomingEvents,
-            'sec_fillings'    => $sec_fillings
+            'sec_fillings'    => $sec_fillings,
         ]);
 
     }
+
+    public function corporate_governance()
+    {
+        $cgdocs = Document::where('document_type_id', 5) //Press release
+            ->orderBy('doc_date', 'desc')
+            ->get();
+
+        $banners = Banner::whereHas('menu', function ($query) {
+            $query->where('route', 'corporate-governance');
+        })->get();
+
+        // Pass the arrays to the view
+        return view('frontend.investor.corporate-governance', [
+            'pageTitle'       => 'Corporate Governance',
+            'pageDescription' => 'Corporate Governance',
+            'pageScript'      => 'newsroom',
+            'cgdocs'          => $cgdocs,
+            'banners'          => $banners
+        ]);
+
+    }
+
 }
