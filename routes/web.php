@@ -6,7 +6,7 @@ use App\Http\Controllers\OtpController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/about-us', [HomeController::class, 'about'])->name('about');
 Route::get('/leadership-team', [HomeController::class, 'leadership_team'])->name('leadership-team');
 Route::get('/sustainability', [HomeController::class, 'sustainability'])->name('sustainability');
 Route::get('/contact-us', [HomeController::class, 'contactus'])->name('contactus');
@@ -16,6 +16,7 @@ Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('p
 Route::get('/social-environment', [HomeController::class, 'socialEnvironment'])->name('socialEnvironment');
 Route::get('/corporate-social-responsibility', [HomeController::class, 'csr'])->name('csr');
 Route::get('/certificate', [HomeController::class, 'certificate'])->name('certificate');
+Route::get('/iso-accreditations', [HomeController::class, 'iso_accreditations'])->name('iso-accreditations');
 
 
 

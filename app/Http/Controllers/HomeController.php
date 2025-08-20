@@ -214,4 +214,22 @@ class HomeController extends Controller
             ]
         );
     }
+    public function iso_accreditations()
+    {
+
+        $banners = Banner::whereHas('menu', function ($query) {
+            $query->where('route', 'iso-accreditations');
+        })->get();
+
+
+        return view('frontend.pages.iso-accreditations',
+            [
+                'pageTitle'       => 'Azure Power - Iso Accreditations',
+                'pageDescription' => 'Azure Power - Iso Accreditations',
+                // 'pageScript'      => "sustainability",
+                'banners'          => $banners,
+
+            ]
+        );
+    }
 }
